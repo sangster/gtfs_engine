@@ -14,5 +14,5 @@ end
 group :test do
   gem 'rspec', '3.0.0.beta2', require: false
   gem 'simplecov', '~> 0.7', require: false
-  gem 'factory_girl', '~> 4.4'
+  gem 'factory_girl_rails', '~> 4.4'
 end
