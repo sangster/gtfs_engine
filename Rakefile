@@ -6,13 +6,14 @@ rescue LoadError
 end
 
 require 'jeweler'
+require File.dirname(__FILE__) + '/lib/gtfs_engine/version'
 
-APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
-load 'rails/tasks/engine.rake'
+# APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
+# load 'rails/tasks/engine.rake'
 
 Jeweler::Tasks.new do |gem|
   gem.name = 'gtfs-engine'
-  gem.version = '0.1'
+  gem.version = GtfsEngine::Version.to_s
   gem.homepage = 'http://github.com/sangster/gtfs-engine'
   gem.license = 'GPL 3'
   gem.summary = 'Read General Transit Feed Specification zip files'
@@ -27,11 +28,11 @@ end
 
 Jeweler::RubygemsDotOrgTasks.new
 
-#task bump: ['bump:patch']
-#namespace :bump do
-#  %i[major minor patch].each do |part|
-#    bumper = GtfsReader::Version::Bumper.new part
-#    desc "Bump the version to #{bumper}"
-#    task(part) { bumper.bump }
-#  end
-#end
+task bump: ['bump:patch']
+namespace :bump do
+  %i[major minor patch].each do |part|
+    bumper = GtfsEngine::Version::Bumper.new part
+    desc "Bump the version to #{bumper}"
+    task(part) { bumper.bump }
+  end
+end

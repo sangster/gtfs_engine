@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
     "app/views/layouts/gtfs_engine/application.html.erb",
     "bin/rails",
     "config/routes.rb",
-    "gtfs_engine.gemspec",
+    "gtfs-engine.gemspec",
     "lib/gtfs_engine.rb",
     "lib/gtfs_engine/engine.rb",
     "lib/gtfs_engine/version.rb",
@@ -86,16 +86,12 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<gtfs_engine>, [">= 0"])
-      s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<pry-rails>, ["~> 0.3"])
       s.add_development_dependency(%q<yard>, ["~> 0.8"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
       s.add_development_dependency(%q<guard-rspec>, ["~> 4.2"])
     else
-      s.add_dependency(%q<gtfs_engine>, [">= 0"])
-      s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<pry-rails>, ["~> 0.3"])
       s.add_dependency(%q<yard>, ["~> 0.8"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -103,8 +99,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<guard-rspec>, ["~> 4.2"])
     end
   else
-    s.add_dependency(%q<gtfs_engine>, [">= 0"])
-    s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<pry-rails>, ["~> 0.3"])
     s.add_dependency(%q<yard>, ["~> 0.8"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
