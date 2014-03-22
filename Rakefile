@@ -8,9 +8,6 @@ end
 require 'jeweler'
 require File.dirname(__FILE__) + '/lib/gtfs_engine/version'
 
-# APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
-# load 'rails/tasks/engine.rake'
-
 Jeweler::Tasks.new do |gem|
   gem.name = 'gtfs-engine'
   gem.version = GtfsEngine::Version.to_s
@@ -24,6 +21,8 @@ Jeweler::Tasks.new do |gem|
   EOF
   gem.email = 'jon@ertt.ca'
   gem.authors = ['Jon Sangster']
+
+  gem.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
 end
 
 Jeweler::RubygemsDotOrgTasks.new
