@@ -13,13 +13,9 @@ Gem::Specification.new do |s|
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
-  s.extra_rdoc_files = [
-    "README.rdoc"
-  ]
   s.files = [
     "Gemfile",
     "Gemfile.lock",
-    "README.rdoc",
     "Rakefile",
     "app/controllers/gtfs_engine/application_controller.rb",
     "app/helpers/gtfs_engine/application_helper.rb",
