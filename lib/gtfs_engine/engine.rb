@@ -3,7 +3,7 @@ module GtfsEngine
     isolate_namespace GtfsEngine
     engine_name 'gtfs_engine'
 
-    config.generators do
+    config.generators.instance_exec do
       template_engine     :jbuilder
       test_framework      :rspec, fixture: false
       stylesheets         false
