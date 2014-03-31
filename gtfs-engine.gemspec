@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "app/views/gtfs_engine/stops/index.json.jbuilder",
     "app/views/gtfs_engine/stops/show.json.jbuilder",
     "app/views/layouts/gtfs_engine/application.html.erb",
+    "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
     "db/migrate/20140320045232_create_gtfs_engine_calendars.rb",
@@ -39,6 +40,8 @@ Gem::Specification.new do |s|
     "db/migrate/20140320052005_create_gtfs_engine_stops.rb",
     "db/migrate/20140320052508_create_gtfs_engine_trips.rb",
     "db/migrate/20140320052907_create_gtfs_engine_stop_times.rb",
+    "lib/ext.rb",
+    "lib/ext/active_record/base.rb",
     "lib/gtfs_engine.rb",
     "lib/gtfs_engine/engine.rb",
     "lib/gtfs_engine/source.rb",

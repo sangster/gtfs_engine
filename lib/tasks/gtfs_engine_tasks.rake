@@ -22,7 +22,7 @@ namespace :gtfs_engine do
       name, etag = colorize set
 
       if set
-        set.delete!
+        set.delete
         puts "Destroyed #{name} data set with etag #{etag}"
       else
         error = 'Error:'.red
