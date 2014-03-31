@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+
+gem 'rails', '~> 4.0'
+gem 'gtfs-reader', path: '../gtfs-reader'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3'

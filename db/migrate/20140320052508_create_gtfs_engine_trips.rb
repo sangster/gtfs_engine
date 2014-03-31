@@ -3,18 +3,18 @@ class CreateGtfsEngineTrips < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :trip_id, null: false
-      t.string :service_id, null: false
+      t.string :trip_id,        null: false
+      t.string :service_id,     null: false
       t.string :trip_headsign
       t.string :trip_short_name
       t.integer :direction_id
       t.string :block_id
-      t.string :route_id, null: false
+      t.string :route_id,       null: false
       t.string :shape_id
       t.integer :wheelchair_accessible
       t.integer :bikes_allowed
 
-      t.datetime :created_at, null: false
+      t.references :data_set, null: false, index: true
     end
 
     add_index TABLE, :trip_id
