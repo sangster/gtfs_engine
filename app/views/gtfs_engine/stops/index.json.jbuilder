@@ -1,4 +1,5 @@
-json.array!(@stops) do |stop|
-  json.extract! stop, :id, :index, :show
-  json.url stop_url(stop, format: :json)
+json.ignore_nil! true
+json.array! @stops do |stop|
+  json.extract! stop, *%i(stop_id code name desc lat lon zone_id url
+    location_type parent_station timezone wheelchair_boarding)
 end
