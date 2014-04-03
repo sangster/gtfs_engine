@@ -19,7 +19,7 @@ namespace :gtfs_engine do
     desc 'Delete a data set and all the models from it'
     task :delete, [:name, :etag] => :environment do |_, args|
       set = GtfsEngine::DataSet.find_by name: args.name, etag: args.etag
-      name, etag = colorize set
+      name, etag = [args.name.to_s.light_blue, args.etag.yellow]
 
       if set
         set.delete
@@ -33,7 +33,7 @@ namespace :gtfs_engine do
     desc 'Count the number of models in a data set'
     task :count, [:name, :etag] => :environment do |_, args|
       set = GtfsEngine::DataSet.find_by name: args.name, etag: args.etag
-      name, etag = colorize set
+      name, etag = [args.name.to_s.light_blue, args.etag.yellow]
       puts "Model count for #{name} data set with etag #{etag}"
 
       width = model_lists.inject(0) {|max, n| [max, n.to_s.length].max }
@@ -43,10 +43,6 @@ namespace :gtfs_engine do
       end
     end
   end
-end
-
-def colorize(data_set)
-  [data_set.name.to_s.light_blue, data_set.etag.yellow]
 end
 
 def list_source_data_sets(name)

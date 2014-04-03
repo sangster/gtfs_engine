@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1.5"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
-  s.date = "2014-03-31"
+  s.date = "2014-04-03"
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
     "app/controllers/gtfs_engine/stops_controller.rb",
     "app/helpers/gtfs_engine/application_helper.rb",
     "app/helpers/gtfs_engine/stop_helper.rb",
+    "app/models/gtfs_engine/agency.rb",
     "app/models/gtfs_engine/calendar.rb",
     "app/models/gtfs_engine/calendar_date.rb",
     "app/models/gtfs_engine/data_set.rb",
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
     "db/migrate/20140320052005_create_gtfs_engine_stops.rb",
     "db/migrate/20140320052508_create_gtfs_engine_trips.rb",
     "db/migrate/20140320052907_create_gtfs_engine_stop_times.rb",
+    "db/migrate/20140401032609_create_gtfs_engine_agencies.rb",
     "lib/ext.rb",
     "lib/ext/active_record/base.rb",
     "lib/gtfs_engine.rb",

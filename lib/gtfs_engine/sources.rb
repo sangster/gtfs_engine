@@ -11,7 +11,8 @@ module GtfsEngine
     def method_missing(name, &block)
       source = @config.sources.__send__ name
       add_default_importers source
-      source.tap { |s| s.instance_exec s, &block if ::Kernel.block_given? }
+      source.instance_exec source, &block if ::Kernel.block_given?
+      source
     end
 
     private
@@ -21,22 +22,23 @@ module GtfsEngine
       return if @source_ids.include? id
       @source_ids.add id
 
-      method = ::Kernel.instance_method(:method).bind self
-      bulk_importer = method.call :bulk_importer
+      get_method = ::Kernel.instance_method(:method).bind self
+      bulk_importer = get_method.call :bulk_importer
       set_id = ::OpenStruct.new id: -1
 
       source.before do |etag|
-        if DataSet.where(name: source.name, etag: etag).count != 0
-          ::Kernel.raise ::GtfsReader::SkipSourceError,
-                "Data Pull already exists for #{etag}"
-        else
+        if DataSet.where(name: source.name, etag: etag).empty?
           set = DataSet.create name: source.name, etag: etag, url: source.url
           set.reload
           set_id.id = set.id
+        else
+          ::Kernel.raise ::GtfsReader::SkipSourceError,
+                         "Data Pull already exists for #{etag}"
         end
       end
 
       source.handlers bulk_importer, set_id, bulk: 1024 do |importer, set_id|
+        agency         &importer.call( Agency, set_id )
         stops          &importer.call( Stop, set_id )
         shapes         &importer.call( Shape, set_id )
         routes         &importer.call( Route, set_id )
@@ -54,13 +56,10 @@ module GtfsEngine
           model_class.delete_all
         end
 
-        read {|row| model_class.new row }
-
-        bulk do |models, count, total|
+        bulk do |values, count, total, columns|
           id = data_set_id_holder.id
-          models.each {|m| m.data_set_id = id }
-
-          model_class.import models
+          values.each {|v| v << id }
+          model_class.import (columns + [:data_set_id]), values
           ::Rails.logger.info "Inserted #{count} #{model_class} records
 (total: #{total})"
         end
