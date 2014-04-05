@@ -13,6 +13,7 @@ class CreateGtfsEngineShapes < ActiveRecord::Migration
     end
 
     add_index TABLE, :shape_id
+    add_index TABLE, :shape_pt_sequence
     add_index TABLE, :shape_pt_lat
     add_index TABLE, :shape_pt_lon
   end

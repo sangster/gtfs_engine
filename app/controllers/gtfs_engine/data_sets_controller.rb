@@ -1,5 +1,3 @@
-require_dependency 'gtfs_engine/application_controller'
-
 module GtfsEngine
   class DataSetsController < ApplicationController
     def index

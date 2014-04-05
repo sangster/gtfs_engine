@@ -1,0 +1,4 @@
+json.ignore_nil! true
+json.array! @dates do |dates|
+  json.extract! dates, *%i(service_id date exception_type)
+end

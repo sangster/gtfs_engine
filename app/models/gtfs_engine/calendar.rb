@@ -7,5 +7,7 @@ module GtfsEngine
 
     has_many :routes, through: :trips
     has_many :shapes, through: :trips
+
+    alias_attribute :dates, :calendar_dates
   end
 end
