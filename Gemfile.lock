@@ -1,7 +1,7 @@
 PATH
   remote: ../gtfs-reader
   specs:
-    gtfs-reader (0.1.5)
+    gtfs-reader (0.1.6)
       colorize (~> 0.7)
       log4r (~> 1.1)
       rubyzip (~> 1.1)
