@@ -5,20 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1.7"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
-  s.date = "2014-04-03"
+  s.date = "2014-04-05"
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
   s.files = [
     "Rakefile",
+    "app/controllers/gtfs_engine/agencies_controller.rb",
     "app/controllers/gtfs_engine/application_controller.rb",
+    "app/controllers/gtfs_engine/data_sets_controller.rb",
     "app/controllers/gtfs_engine/stops_controller.rb",
+    "app/helpers/gtfs_engine/application/default_views.rb",
+    "app/helpers/gtfs_engine/application/fields.rb",
     "app/helpers/gtfs_engine/application_helper.rb",
-    "app/helpers/gtfs_engine/stop_helper.rb",
     "app/models/gtfs_engine/agency.rb",
     "app/models/gtfs_engine/calendar.rb",
     "app/models/gtfs_engine/calendar_date.rb",
@@ -28,9 +31,12 @@ Gem::Specification.new do |s|
     "app/models/gtfs_engine/stop.rb",
     "app/models/gtfs_engine/stop_time.rb",
     "app/models/gtfs_engine/trip.rb",
+    "app/views/gtfs_engine/agencies/index.json.jbuilder",
+    "app/views/gtfs_engine/agencies/show.json.jbuilder",
+    "app/views/gtfs_engine/data_sets/index.json.jbuilder",
+    "app/views/gtfs_engine/data_sets/show.json.jbuilder",
     "app/views/gtfs_engine/stops/index.json.jbuilder",
     "app/views/gtfs_engine/stops/show.json.jbuilder",
-    "app/views/layouts/gtfs_engine/application.html.erb",
     "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
@@ -43,10 +49,10 @@ Gem::Specification.new do |s|
     "db/migrate/20140320052907_create_gtfs_engine_stop_times.rb",
     "db/migrate/20140401032609_create_gtfs_engine_agencies.rb",
     "lib/ext.rb",
+    "lib/ext/active_record/associations/association.rb",
     "lib/ext/active_record/base.rb",
     "lib/gtfs_engine.rb",
     "lib/gtfs_engine/engine.rb",
-    "lib/gtfs_engine/source.rb",
     "lib/gtfs_engine/sources.rb",
     "lib/gtfs_engine/version.rb",
     "lib/tasks/gtfs_engine_tasks.rake"
