@@ -6,5 +6,7 @@ module GtfsEngine
 
     has_many :calendars, through: :trips
     has_many :shapes,    through: :trips
+
+    prefix_aliases :route, *%i(short_name long_name desc type url color text_color)
   end
 end

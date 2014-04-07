@@ -38,14 +38,18 @@ module GtfsEngine
       end
 
       source.handlers bulk_importer, set_id, bulk: 1024 do |importer, set_id|
-        agency         &importer.call( Agency, set_id )
-        stops          &importer.call( Stop, set_id )
-        shapes         &importer.call( Shape, set_id )
-        routes         &importer.call( Route, set_id )
-        calendar       &importer.call( Calendar, set_id )
-        calendar_dates &importer.call( CalendarDate, set_id )
-        trips          &importer.call( Trip, set_id )
-        stop_times     &importer.call( StopTime, set_id )
+        agency          &importer.call( Agency, set_id )
+        calendar        &importer.call( Calendar, set_id )
+        calendar_dates  &importer.call( CalendarDate, set_id )
+        fare_attributes &importer.call( FareAttribute, set_id )
+        fare_rules      &importer.call( FareRule, set_id )
+        frequencies     &importer.call( Frequencies, set_id )
+        stop_times      &importer.call( StopTime, set_id )
+        routes          &importer.call( Route, set_id )
+        shapes          &importer.call( Shape, set_id )
+        stops           &importer.call( Stop, set_id )
+        stop_times      &importer.call( StopTime, set_id )
+        trips           &importer.call( Trip, set_id )
       end
     end
 

@@ -2,10 +2,13 @@ require 'colorize'
 
 namespace :gtfs_engine do
   desc 'Update sources'
-  task update: :environment do
+  task :update, [:name] => :environment do |_, args|
     GtfsReader.config.skip_parsing true
-
-    GtfsReader.update_all!
+    if args.name
+      GtfsReader.update args.name.to_sym
+    else
+      GtfsReader.update_all!
+    end
   end
 
   namespace :sets do
