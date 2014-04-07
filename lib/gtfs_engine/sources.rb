@@ -43,12 +43,14 @@ module GtfsEngine
         calendar_dates  &importer.call( CalendarDate, set_id )
         fare_attributes &importer.call( FareAttribute, set_id )
         fare_rules      &importer.call( FareRule, set_id )
-        frequencies     &importer.call( Frequencies, set_id )
+        fare_rules      &importer.call( FeedInfo, set_id )
+        frequencies     &importer.call( Frequency, set_id )
         stop_times      &importer.call( StopTime, set_id )
         routes          &importer.call( Route, set_id )
         shapes          &importer.call( Shape, set_id )
         stops           &importer.call( Stop, set_id )
         stop_times      &importer.call( StopTime, set_id )
+        stop_times      &importer.call( Transfer, set_id )
         trips           &importer.call( Trip, set_id )
       end
     end
