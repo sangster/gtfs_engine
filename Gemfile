@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '~> 4.0'
-gem 'gtfs-reader', path: '../gtfs-reader'
+gem 'gtfs-reader', '~> 0.2.2'
 gem 'activerecord-import'
 
 group :development, :test do
