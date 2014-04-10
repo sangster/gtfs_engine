@@ -4,6 +4,10 @@ require 'gtfs_engine/engine'
 require 'gtfs_engine/sources'
 
 module GtfsEngine
+  extend ActiveSupport::Autoload
+
+  autoload :Concerns
+
   class << self
     attr_accessor :send_aliased_keys
 

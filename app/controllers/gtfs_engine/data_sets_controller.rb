@@ -6,7 +6,7 @@ module GtfsEngine
     end
 
     def show
-      @data_set = DataSet.find params[:id]
+      @data_set = data :id
       respond_with @data_set
     end
   end

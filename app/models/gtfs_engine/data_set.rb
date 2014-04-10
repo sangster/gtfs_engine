@@ -15,5 +15,7 @@ module GtfsEngine
       set.has_many :transfers
       set.has_many :trips
     end
+
+    scope :newest, -> { order(created_at: :desc).first }
   end
 end

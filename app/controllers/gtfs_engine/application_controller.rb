@@ -1,11 +1,7 @@
 module GtfsEngine
   class ApplicationController < ActionController::Base
+    include Concerns::Controllers::DataAccess
+
     respond_to :json
-
-    protected
-
-    def data
-      @data_set ||= DataSet.find params[:data_set_id]
-    end
   end
 end
