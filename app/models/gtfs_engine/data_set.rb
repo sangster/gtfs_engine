@@ -17,5 +17,21 @@ module GtfsEngine
     end
 
     scope :newest, -> { order(created_at: :desc).first }
+
+    #@return [Hash] a hash of each record type and the number of records in
+    #  this data set
+    def record_counts
+      Rails.cache.fetch("data_set_counts_#{id}") { count_has_many_records }
+    end
+
+    private
+
+    def count_has_many_records
+      self.class.reflections.select do |name, assoc|
+        assoc.macro == :has_many && assoc.options[:inverse_of] == :data_set
+      end.each_with_object({}) do |(name, _), hash|
+        hash[name] = send(name).count
+      end
+    end
   end
 end

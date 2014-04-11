@@ -9,7 +9,7 @@ namespace :gtfs_engine do
     end
 
     if args.name
-      GtfsReader.update args.name
+      GtfsReader.update args.name.to_sym
     else
       GtfsReader.update_all!
     end

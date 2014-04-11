@@ -2,7 +2,6 @@ module GtfsEngine
   class CalendarsController < ApplicationController
     def index
       @calendars = data.calendars
-      binding.pry
       respond_with @calendars
     end
 
