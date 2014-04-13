@@ -1,5 +1,5 @@
 module GtfsEngine
-  module ApplicationHelper
+  module FieldsHelper
     def fields
       (@fields ||= {})[model] ||= create_fields
     end

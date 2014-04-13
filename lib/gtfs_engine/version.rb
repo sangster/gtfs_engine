@@ -3,7 +3,7 @@ module GtfsEngine
     # The following four lines are generated, so don't mess with them.
     MAJOR = 0
     MINOR = 1
-    PATCH = 10
+    PATCH = 11
     BUILD = nil
 
     def self.to_s

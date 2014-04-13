@@ -1,8 +1,5 @@
 module GtfsEngine
   class ShapesController < ApplicationController
-    def show
-      @shapes = data.shapes.where shape_id: params[:id]
-      respond_with @shapes
-    end
+    include Concerns::Controllers::Gtfs
   end
 end

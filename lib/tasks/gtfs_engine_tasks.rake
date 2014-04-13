@@ -13,6 +13,8 @@ namespace :gtfs_engine do
     else
       GtfsReader.update_all!
     end
+
+    Rails.cache.clear
   end
 
   namespace :sets do

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1.10"
+  s.version = "0.1.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
-  s.date = "2014-04-10"
+  s.date = "2014-04-13"
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
@@ -30,9 +30,8 @@ Gem::Specification.new do |s|
     "app/controllers/gtfs_engine/stops_controller.rb",
     "app/controllers/gtfs_engine/transfers_controller.rb",
     "app/controllers/gtfs_engine/trips_controller.rb",
-    "app/helpers/gtfs_engine/application/default_views.rb",
-    "app/helpers/gtfs_engine/application/fields.rb",
-    "app/helpers/gtfs_engine/application_helper.rb",
+    "app/helpers/gtfs_engine/default_views_helper.rb",
+    "app/helpers/gtfs_engine/fields_helper.rb",
     "app/models/gtfs_engine/agency.rb",
     "app/models/gtfs_engine/calendar.rb",
     "app/models/gtfs_engine/calendar_date.rb",
@@ -47,31 +46,15 @@ Gem::Specification.new do |s|
     "app/models/gtfs_engine/stop_time.rb",
     "app/models/gtfs_engine/transfer.rb",
     "app/models/gtfs_engine/trip.rb",
-    "app/views/gtfs_engine/agencies/index.json.jbuilder",
-    "app/views/gtfs_engine/agencies/show.json.jbuilder",
-    "app/views/gtfs_engine/calendar_dates/index.json.jbuilder",
-    "app/views/gtfs_engine/calendar_dates/show.json.jbuilder",
     "app/views/gtfs_engine/calendars/dates.json.jbuilder",
-    "app/views/gtfs_engine/calendars/index.json.jbuilder",
-    "app/views/gtfs_engine/calendars/show.json.jbuilder",
     "app/views/gtfs_engine/data_sets/index.json.jbuilder",
     "app/views/gtfs_engine/data_sets/show.json.jbuilder",
-    "app/views/gtfs_engine/fare_attributes/index.json.jbuilder",
-    "app/views/gtfs_engine/fare_attributes/show.json.jbuilder",
-    "app/views/gtfs_engine/feed_infos/index.json.jbuilder",
-    "app/views/gtfs_engine/frequencies/index.json.jbuilder",
-    "app/views/gtfs_engine/frequencies/show.json.jbuilder",
-    "app/views/gtfs_engine/routes/index.json.jbuilder",
-    "app/views/gtfs_engine/routes/show.json.jbuilder",
-    "app/views/gtfs_engine/shapes/show.json.jbuilder",
-    "app/views/gtfs_engine/stops/index.json.jbuilder",
-    "app/views/gtfs_engine/stops/show.json.jbuilder",
+    "app/views/gtfs_engine/gtfs/index.json.jbuilder",
+    "app/views/gtfs_engine/gtfs/show.json.jbuilder",
     "app/views/gtfs_engine/transfers/from.json.jbuilder",
     "app/views/gtfs_engine/transfers/from_to.json.jbuilder",
-    "app/views/gtfs_engine/transfers/index.json.jbuilder",
     "app/views/gtfs_engine/transfers/to.json.jbuilder",
     "app/views/gtfs_engine/trips/block.json.jbuilder",
-    "app/views/gtfs_engine/trips/show.json.jbuilder",
     "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
@@ -95,6 +78,7 @@ Gem::Specification.new do |s|
     "lib/gtfs_engine/concerns.rb",
     "lib/gtfs_engine/concerns/controllers.rb",
     "lib/gtfs_engine/concerns/controllers/data_access.rb",
+    "lib/gtfs_engine/concerns/controllers/gtfs.rb",
     "lib/gtfs_engine/engine.rb",
     "lib/gtfs_engine/sources.rb",
     "lib/gtfs_engine/version.rb",

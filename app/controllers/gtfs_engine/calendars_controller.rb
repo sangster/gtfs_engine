@@ -1,17 +1,10 @@
 module GtfsEngine
   class CalendarsController < ApplicationController
-    def index
-      @calendars = data.calendars
-      respond_with @calendars
-    end
-
-    def show
-      @calendar = data.calendars.find_by service_id: params[:id]
-      respond_with @calendar
-    end
+    include Concerns::Controllers::Gtfs
+    gtfs_id :service_id
 
     def dates
-      @dates = data.calendars.find_by(service_id: params[:id]).dates
+      @dates = record.dates
       render :dates
     end
   end

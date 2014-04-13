@@ -1,5 +1,5 @@
 module GtfsEngine
-  module ApplicationHelper
+  module DefaultViewsHelper
     def index(json, records)
       json.ignore_nil! true
       json.cache! "#{controller_name}_index" do
