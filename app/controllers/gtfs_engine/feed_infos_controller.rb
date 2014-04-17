@@ -1,8 +1,6 @@
 module GtfsEngine
   class FeedInfosController < ApplicationController
-    def index
-      @feed_infos = data.feed_infos
-      respond_with @feed_infos
-    end
+    include Concerns::Controllers::Gtfs
+    filters %i{publisher_name publisher_url lang start_date end_date version}
   end
 end

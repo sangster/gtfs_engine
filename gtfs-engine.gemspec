@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gtfs-engine"
-  s.version = "0.1.11"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jon Sangster"]
-  s.date = "2014-04-13"
+  s.date = "2014-04-15"
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
@@ -55,6 +55,7 @@ Gem::Specification.new do |s|
     "app/views/gtfs_engine/transfers/from_to.json.jbuilder",
     "app/views/gtfs_engine/transfers/to.json.jbuilder",
     "app/views/gtfs_engine/trips/block.json.jbuilder",
+    "app/views/layouts/gtfs-engine/application.json.jbuilder",
     "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
@@ -80,6 +81,8 @@ Gem::Specification.new do |s|
     "lib/gtfs_engine/concerns/controllers/data_access.rb",
     "lib/gtfs_engine/concerns/controllers/gtfs.rb",
     "lib/gtfs_engine/engine.rb",
+    "lib/gtfs_engine/exceptions.rb",
+    "lib/gtfs_engine/json_responder.rb",
     "lib/gtfs_engine/sources.rb",
     "lib/gtfs_engine/version.rb",
     "lib/tasks/gtfs_engine_tasks.rake"

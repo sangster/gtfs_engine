@@ -1,7 +1,11 @@
 module ActiveRecord
   class << Base
     def aliases
-      @aliases ||= {}
+      @aliases ||= ActiveSupport::HashWithIndifferentAccess.new.tap do |hash|
+        # attribute_names.each do |attr|
+        #   hash[attr[0..-4].to_sym] = attr if attr.end_with? '_id'
+        # end
+      end
     end
 
     def prefix_aliases(prefix, *aliases)

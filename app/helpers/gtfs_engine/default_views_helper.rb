@@ -1,18 +1,21 @@
 module GtfsEngine
   module DefaultViewsHelper
     def index(json, records)
-      json.ignore_nil! true
-      json.cache! "#{controller_name}_index" do
-        json.array! records do |record|
-          json.extract! record, *fields
+      json.cache! [controller_name, filter] do
+        json.ignore_nil! true
+
+        json.status 'success'
+        json.data do
+          json.array!(records) {|record| json.extract! record, *fields }
         end
       end
     end
 
     def show(json, record)
-      json.ignore_nil! true
       json.cache! record do
-        json.extract! record, *fields
+        json.ignore_nil! true
+        json.status 'success'
+        json.data { json.extract! record, *fields }
       end
     end
   end

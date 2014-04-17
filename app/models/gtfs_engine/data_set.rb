@@ -20,18 +20,45 @@ module GtfsEngine
 
     #@return [Hash] a hash of each record type and the number of records in
     #  this data set
-    def record_counts
-      Rails.cache.fetch("data_set_counts_#{id}") { count_has_many_records }
+    def details
+      Rails.cache.fetch("data_set_details_#{id}") { create_details }
     end
 
     private
 
-    def count_has_many_records
+    def create_details
       self.class.reflections.select do |name, assoc|
         assoc.macro == :has_many && assoc.options[:inverse_of] == :data_set
       end.each_with_object({}) do |(name, _), hash|
-        hash[name] = send(name).count
+        controller_class = association_controller_class name
+        model_class      = association_model_class(name)
+        hash[name] = {
+            count: send(name).count,
+            filters: unalias(controller_class.filters, model_class.aliases)
+        }
       end
+    end
+
+    def association_controller_class(name)
+      mod = self.class.name.deconstantize
+      controller = "#{name}_controller".classify
+      "#{mod}::#{controller}".constantize
+    end
+
+    def association_model_class(name)
+      mod = self.class.name.deconstantize
+      model = name.to_s.classify
+      "#{mod}::#{model}".constantize
+    end
+
+    def unalias(filters, aliases)
+      aliases = reverse_hash aliases
+      return filters unless GtfsEngine.send_aliased_keys
+      filters.map {|filter| aliases[filter] or filter }
+    end
+
+    def reverse_hash(hash)
+      Hash[*hash.to_a.flatten.reverse]
     end
   end
 end
