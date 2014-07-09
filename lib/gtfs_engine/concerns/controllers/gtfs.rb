@@ -1,12 +1,14 @@
+# This controller +Concern+ provides the functionality common among most of
+# the GTFS controllers.
 module GtfsEngine::Concerns::Controllers::Gtfs
   extend ActiveSupport::Concern
 
   included do
     around_filter :gtfs_cache, only: [:index, :show]
 
-    rescue_from GtfsEngine::UnknownFilter, with: :unknown_filter
+    rescue_from GtfsEngine::UnknownFilters,     with: :unknown_filter
     rescue_from ActiveRecord::StatementInvalid, with: :statement_invalid
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from ActiveRecord::RecordNotFound,   with: :record_not_found
 
     #@return [Symbol] the unique key for this GTFS association
     def self.gtfs_id(id=nil)
@@ -28,6 +30,8 @@ module GtfsEngine::Concerns::Controllers::Gtfs
       end
     end
 
+    #@return <Object> the given collection with the aliased names replaced
+    # with their prefixed names
     def self.unalias(attrs)
       aliases = record_class.aliases
       case attrs
@@ -40,16 +44,21 @@ module GtfsEngine::Concerns::Controllers::Gtfs
       end
     end
 
+    # GET / collection of elements for the given GTFS type
+    # The returned collection may be filtered with query parameters
     def index
       @records = query.empty? ? collection : filtered_collection
       respond_with @records, template: 'gtfs_engine/gtfs/index'
     end
 
+    # GET /:id for a specific element of the given GTFS type
     def show
       @record = record
       respond_with @record, template: 'gtfs_engine/gtfs/show'
     end
 
+    #@return <ActionController::Parameters> the map of fields to filter;
+    # derived from the query string
     def filter
       @filter ||= begin
         query = self.class.unalias self.query
@@ -59,7 +68,7 @@ module GtfsEngine::Concerns::Controllers::Gtfs
         end.compact
 
         unless unknown.empty?
-          raise GtfsEngine::UnknownFilter.new(unknown), 'unknown filter'
+          raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filters'
         end
         query_params = ActionController::Parameters.new query
         query_params.permit filters

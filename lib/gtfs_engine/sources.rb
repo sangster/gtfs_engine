@@ -66,8 +66,7 @@ module GtfsEngine
           id = data_set_id_holder.id
           values.each {|v| v << id }
           model_class.import (columns + [:data_set_id]), values
-          ::Rails.logger.info "Inserted #{count} #{model_class} records
-(total: #{total})"
+          ::Rails.logger.info "Inserted #{count} #{model_class} records (total: #{total})"
         end
       end
     end

@@ -1,11 +1,9 @@
+# Many GTFS classes have fields named with a shared prefix, such as
+# "route_short_name", and "route_long_name".
 module ActiveRecord
   class << Base
     def aliases
-      @aliases ||= ActiveSupport::HashWithIndifferentAccess.new.tap do |hash|
-        # attribute_names.each do |attr|
-        #   hash[attr[0..-4].to_sym] = attr if attr.end_with? '_id'
-        # end
-      end
+      @aliases ||= ActiveSupport::HashWithIndifferentAccess.new
     end
 
     def prefix_aliases(prefix, *aliases)

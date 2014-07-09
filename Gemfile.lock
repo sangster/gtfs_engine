@@ -199,7 +199,7 @@ DEPENDENCIES
   guard-rspec (~> 4.2)
   jeweler (~> 2.0)
   pry-rails (~> 0.3)
-  rails (~> 4.0)
+  rails (~> 4.1)
   rspec (= 3.0.0.beta2)
   simplecov (~> 0.7)
   yard (~> 0.8)
