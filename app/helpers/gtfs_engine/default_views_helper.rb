@@ -6,7 +6,9 @@ module GtfsEngine
 
         json.status 'success'
         json.data do
-          json.array!(records) {|record| json.extract! record, *fields }
+          json.set! controller_name do
+            json.array!(records) {|record| json.extract! record, *fields }
+          end
         end
       end
     end
@@ -15,7 +17,11 @@ module GtfsEngine
       json.cache! record do
         json.ignore_nil! true
         json.status 'success'
-        json.data { json.extract! record, *fields }
+        json.data do
+          json.set! controller_name.singularize do
+            json.extract! record, *fields
+          end
+        end
       end
     end
   end
