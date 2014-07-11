@@ -116,7 +116,8 @@ module GtfsEngine::Concerns::Controllers::Gtfs
     def gtfs_cache
       options = {
         etag: [controller_name, data, query],
-        last_modified: data.updated_at
+        last_modified: data.updated_at,
+        public: true
       }
       yield if stale? options
     end
