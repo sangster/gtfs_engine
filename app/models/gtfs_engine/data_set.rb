@@ -21,7 +21,7 @@ module GtfsEngine
     #@return [Hash] a hash of each record type and the number of records in
     #  this data set
     def details
-      Rails.cache.fetch("data_set_details_#{id}") { create_details }
+      Rails.cache.fetch("gtfs_data_set_details_#{id}") { create_details }
     end
 
     private

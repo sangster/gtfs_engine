@@ -5,12 +5,10 @@ module GtfsEngine
 
       @data_sets = Rails.cache.fetch('data_sets_index') { DataSet.all }
 
-      cache = {
-          last_modified: @data_sets.collect(&:created_at).max,
-          public: true
-      }
-
-      respond_with @data_sets if stale? cache
+      if stale? last_modified: @data_sets.collect(&:created_at).max,
+                public: true
+        respond_with @data_sets
+      end
     end
 
     def show
