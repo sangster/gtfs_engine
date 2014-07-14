@@ -32,7 +32,7 @@ namespace :gtfs_engine do
 
       if set
         set.delete
-        puts "Destroyed #{name} data set with etag #{etag}"
+        puts "Deleted #{name} data set with etag #{etag}"
       else
         error = 'Error:'.red
         puts "#{error} Could not find #{name} data set with etag #{etag}"

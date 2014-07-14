@@ -119,6 +119,8 @@ module GtfsEngine::Concerns::Controllers::Gtfs
         last_modified: data.updated_at,
         public: true
       }
+
+      expires_in 3.hours
       yield if stale? options
     end
 

@@ -59,7 +59,8 @@ module GtfsEngine
       ::Proc.new do
         before do
           ::Rails.logger.info "Deleting all rows from #{model_class}"
-          model_class.delete_all
+          id = data_set_id_holder.id
+          model_class.where(data_set_id: id).delete_all
         end
 
         bulk do |values, count, total, columns|
