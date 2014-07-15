@@ -3,9 +3,10 @@ class CreateGtfsEngineDataSets < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :name, null: false
-      t.string :url,  null: false
-      t.string :etag, null: false
+      t.string :name,  null: false
+      t.string :title, null: false
+      t.string :url,   null: false
+      t.string :etag,  null: false
 
       t.timestamps
     end

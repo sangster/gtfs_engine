@@ -28,7 +28,10 @@ module GtfsEngine
 
       source.before do |etag|
         if DataSet.where(name: source.name, etag: etag).empty?
-          set = DataSet.create name: source.name, etag: etag, url: source.url
+          set = DataSet.create name: source.name,
+                               title: source.title,
+                               etag: etag,
+                               url: source.url
           set.reload
           set_id.id = set.id
         else

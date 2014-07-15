@@ -4,7 +4,7 @@ json.status 'success'
 json.data do
   json.set! 'data_sets' do
     json.array! @data_sets do |data_set|
-      json.extract! data_set, *%i(id name url etag created_at)
+      json.extract! data_set, *%i(id name title url etag created_at)
     end
   end
 end
