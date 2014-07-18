@@ -4,6 +4,7 @@ ruby '2.1.2'
 gem 'rails', '~> 4.1'
 gem 'gtfs-reader', '~> 0.2'
 gem 'activerecord-import'
+gem 'activesupport', '~> 4.0'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3'

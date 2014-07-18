@@ -187,6 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
+  activesupport (~> 4.0)
   bundler (~> 1.0)
   factory_girl_rails (~> 4.4)
   gtfs-reader (~> 0.2)

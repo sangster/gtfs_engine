@@ -1,3 +1,18 @@
+# This file is part of the KNOWtime server.
+#
+# The KNOWtime server is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# The KNOWtime server is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License
+# along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
+#
 # Many GTFS associations reference arbitrary fields in the referenced table.
 # This requires the use of the +primary_key:+ named parameter. Coincidentally,
 # the name of the +foreign_key:+ is often the same as the referenced field. As
