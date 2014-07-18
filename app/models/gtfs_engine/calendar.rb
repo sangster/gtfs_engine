@@ -26,6 +26,10 @@ module GtfsEngine
 
 
     class << self
+      # @return <ActiveRecord_Relation> the set of Calendars that include the
+      #   given date.
+      # This method will add/remove entries listed in CalendarDate and will also
+      # filter out entries which don't match the correct day-of-week.
       def from_date_string(date)
         dates = GtfsEngine::CalendarDate.where date: date
 
@@ -50,6 +54,8 @@ module GtfsEngine
 
       private
 
+      # Modifies the given query to only matches the day of the week represented
+      # by the given date (format: YYYY-MM-DD)
       def where_day_of_week(query, date_str)
         case Date.new( *date_str.split('-').map(&:to_i) ).cwday
         when 1 then query.where monday:    true

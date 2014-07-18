@@ -12,7 +12,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
-require 'active_support/autoload'
 require 'gtfs_reader'
 
 require 'gtfs_engine/engine'
