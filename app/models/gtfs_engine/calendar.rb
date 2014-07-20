@@ -30,6 +30,8 @@ module GtfsEngine
       #   given date.
       # This method will add/remove entries listed in CalendarDate and will also
       # filter out entries which don't match the correct day-of-week.
+      #
+      # TODO: Currently, this method does 3 SQL queries. Try to lower this.
       def from_date_string(date)
         dates = GtfsEngine::CalendarDate.where date: date
 

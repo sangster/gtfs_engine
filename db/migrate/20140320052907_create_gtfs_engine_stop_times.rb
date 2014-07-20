@@ -5,8 +5,8 @@ class CreateGtfsEngineStopTimes < ActiveRecord::Migration
     create_table TABLE do |t|
       t.string :stop_id,         null: false
       t.string :trip_id,         null: false
-      t.integer :arrival_time,   null: false
-      t.integer :departure_time, null: false
+      t.string :arrival_time,   null: false
+      t.string :departure_time, null: false
       t.integer :stop_sequence,  null: false
       t.string :stop_headsign
       t.integer :pickup_type
