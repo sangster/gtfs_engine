@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Gtfs-engine by sangster</title>
+    <title>{{ page.title }} | gtfs-engine</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css">
+    <script src="{{ site.url }}/javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <h1>gtfs-engine</h1>
-        <p>A engine to drive a RESTful interface for GTFS data</p>
+        <p>An engine to drive a RESTful interface for GTFS data</p>
         <p class="view"><a href="https://github.com/sangster/gtfs-engine">View the Project on GitHub <small>sangster/gtfs-engine</small></a></p>
         <ul>
           <li><a href="https://github.com/sangster/gtfs-engine/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -26,10 +26,12 @@
           <li><a href="https://github.com/sangster/gtfs-engine">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
+
+<section>
+{{ content }}
+</section>
+
     </div>
-
-{% content %}
-
     <footer>
       <p>Project maintained by <a href="https://github.com/sangster">sangster</a></p>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>

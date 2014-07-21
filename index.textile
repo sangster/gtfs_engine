@@ -1,0 +1,34 @@
+---
+title: GTFS Engine
+layout: default
+---
+
+h2. Introduction
+
+This "GTFS(General Transit Feed Specification) Engine" is a "Rails Engine":rails-engine which will allow your Rails application to process GTFS feeds and model their associations through __ActiveRecord__ objects.
+
+This project is currently a sub-component of the "KnowTime Server":knowtime-git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs-reader-git, to actually process the __.zip__ files in which GTFS feeds are contained.
+
+h2. Models
+
+* "DataSet":{{ site.url }}/models/data-set
+
+* "Agency"
+* "Stop"
+* "Route"
+* "Trip"
+* "StopTime"
+* "Calendar"
+* "CalendarDate"
+* "FareAttribute"
+* "FareRule"
+* "Shape"
+* "Frequency"
+* "Transfer"
+* "FeedInfo"
+
+
+[rails-engine]//guides.rubyonrails.org/engines.html
+[knowtime-git]//github.com/sangster/knowtime-git
+[gtfs-reader-git]//github.com/sangster/gtfs-reader
+

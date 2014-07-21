@@ -1,0 +1,9 @@
+---
+title: DataSet
+layout: default
+---
+
+h2. DataSet
+
+The __DataSet__ model is not a GTFS model, but describes a single set of such models, all of which were obtained from a single zip file.
+
