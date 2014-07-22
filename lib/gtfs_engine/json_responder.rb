@@ -12,7 +12,20 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
-json.ignore_nil! true
-json.array! @dates do |dates|
-  json.extract! dates, *%i(service_id date exception_type)
+class GtfsEngine::JsonResponder < ActionController::Responder
+  def to_json
+    if has_errors?
+      display_errors
+    else
+      default_render
+    end
+  end
+
+  protected
+
+  def display_errors
+    status_code = options[:status] || :unprocessable_entity
+    data = { status: 'error', data: resource_errors[:errors] }
+    controller.render format => data, status: status_code
+  end
 end

@@ -1,3 +1,17 @@
+# This file is part of the KNOWtime server.
+#
+# The KNOWtime server is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# The KNOWtime server is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License
+# along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
 require 'set'
 require 'activerecord-import'
 
@@ -28,7 +42,10 @@ module GtfsEngine
 
       source.before do |etag|
         if DataSet.where(name: source.name, etag: etag).empty?
-          set = DataSet.create name: source.name, etag: etag, url: source.url
+          set = DataSet.create name: source.name,
+                               title: source.title,
+                               etag: etag,
+                               url: source.url
           set.reload
           set_id.id = set.id
         else
@@ -57,17 +74,11 @@ module GtfsEngine
 
     def bulk_importer(model_class, data_set_id_holder)
       ::Proc.new do
-        before do
-          ::Rails.logger.info "Deleting all rows from #{model_class}"
-          model_class.delete_all
-        end
-
         bulk do |values, count, total, columns|
           id = data_set_id_holder.id
           values.each {|v| v << id }
           model_class.import (columns + [:data_set_id]), values
-          ::Rails.logger.info "Inserted #{count} #{model_class} records
-(total: #{total})"
+          ::Rails.logger.info "Inserted #{count} #{model_class} records (total: #{total})"
         end
       end
     end
