@@ -186,7 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-import
+  activerecord-import (~> 0.5)
   activesupport (~> 4.0)
   bundler (~> 1.0)
   factory_girl_rails (~> 4.4)
