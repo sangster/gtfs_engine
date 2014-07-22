@@ -25,7 +25,8 @@ module GtfsEngine
     end
 
     def create_fields
-      attribute_names - [:id, :data_set_id]
+      attributes = GtfsEngine.const_get(model).attribute_names
+      attributes - %w(id data_set_id)
     end
   end
 end
