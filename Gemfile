@@ -3,7 +3,7 @@ ruby '2.1.2'
 
 gem 'rails', '~> 4.1'
 gem 'gtfs-reader', '~> 0.2'
-gem 'activerecord-import'
+gem 'activerecord-import', '~> 0.5'
 gem 'activesupport', '~> 4.0'
 
 group :development, :test do
