@@ -15,7 +15,7 @@ h2. Models
 
 * "Agency":{{ site.url }}/models/agency
 * "Stop":{{ site.url }}/models/stop
-* "Route"
+* "Route":{{ site.url }}/models/route
 * "Trip"
 * "StopTime"
 * "Calendar"
