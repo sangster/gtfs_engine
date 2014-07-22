@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 html {
   background: #6C7989;
   background: #6c7989 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6c7989), color-stop(100%, #434b55)) fixed;
@@ -12,9 +11,8 @@ html {
 body {
   padding: 50px 0;
   margin: 0;
-  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555;
-  font-weight: 300;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
 }
 
@@ -219,6 +217,12 @@ h3, h4, h5, h6 {
   color: #494949;
 }
 
+h3 {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid #6c7989;
+}
+
 blockquote {
   margin: 0 -20px 20px;
   padding: 15px 20px 1px 40px;
@@ -301,6 +305,10 @@ footer p {
 footer p + p {
   float: right;
 }
+footer .cite_google {
+    clear: both;
+    text-align: center;
+}
 
 @media print, screen and (max-width: 740px) {
   body {
@@ -347,10 +355,5 @@ footer p + p {
 
   header p {
     width: 100%;
-  }
-}
-@media print {
-  header p.view a small:before {
-    content: 'at http://github.com/';
   }
 }

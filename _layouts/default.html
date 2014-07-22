@@ -6,6 +6,7 @@
     <title>{{ page.title }} | gtfs-engine</title>
 
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/models.css">
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css">
     <script src="{{ site.url }}/javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -17,8 +18,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>gtfs-engine</h1>
-        <p>An engine to drive a RESTful interface for GTFS data</p>
+        <h1><a href="{{ site.url }}">gtfs-engine</a></h1>
+        <p>A RESTful interface for GTFS data.</p>
         <p class="view"><a href="https://github.com/sangster/gtfs-engine">View the Project on GitHub <small>sangster/gtfs-engine</small></a></p>
         <ul>
           <li><a href="https://github.com/sangster/gtfs-engine/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -35,6 +36,9 @@
     <footer>
       <p>Project maintained by <a href="https://github.com/sangster">sangster</a></p>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+      {% if page.cite_google == true %}
+        <div class="cite_google">{% include cite_google.html %}</div>
+      {% endif %}
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
   </body>

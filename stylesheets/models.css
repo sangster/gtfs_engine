@@ -1,0 +1,8 @@
+h2 span, h3 span {
+    font-size: 0.75em;
+    float: right;
+    color: green;
+    font-style: italic;
+    border-bottom: 1px dashed;
+}
+

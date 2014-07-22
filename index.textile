@@ -13,8 +13,8 @@ h2. Models
 
 * "DataSet":{{ site.url }}/models/data-set
 
-* "Agency"
-* "Stop"
+* "Agency":{{ site.url }}/models/agency
+* "Stop":{{ site.url }}/models/stop
 * "Route"
 * "Trip"
 * "StopTime"
@@ -28,7 +28,14 @@ h2. Models
 * "FeedInfo"
 
 
-[rails-engine]//guides.rubyonrails.org/engines.html
-[knowtime-git]//github.com/sangster/knowtime-git
-[gtfs-reader-git]//github.com/sangster/gtfs-reader
+h2. JSend
+
+The GTFS Engine currently returns only one type of content: "JSON(JavaScript Object Notation)":wiki-json; moreover, the returned data is wrapped in a "JSend-compliant response":jsend
+
+
+[rails-engine]{{ site.data.urls.rails_engine }}
+[knowtime-git]{{ site.data.urls.knowtime_git }}
+[gtfs-reader-git]{{ site.data.urls.gtfs_reader_git }}
+[wiki-json]{{ site.data.urls.wiki_json }}
+[jsend]{{ site.data.urls.jsend }}
 
