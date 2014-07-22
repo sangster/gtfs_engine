@@ -15,7 +15,9 @@
 module GtfsEngine
   class TransfersController < ApplicationController
     include Concerns::Controllers::Gtfs
-    filters %i{transfer_type min_transfer_time}
+
+    filters :transfer_type,
+            :min_transfer_time
 
     def from
       @transfers = collection.where from_stop_id: params[:stop_id]

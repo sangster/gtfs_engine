@@ -3,17 +3,17 @@ class CreateGtfsEngineStops < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :stop_id,   null: false
-      t.string :stop_code
-      t.string :stop_name, null: false
-      t.string :stop_desc
-      t.float :stop_lat,   null: false
-      t.float :stop_lon,   null: false
-      t.string :zone_id
-      t.string :stop_url
+      t.string  :stop_id,             null: false
+      t.string  :stop_code
+      t.string  :stop_name,           null: false
+      t.string  :stop_desc
+      t.float   :stop_lat,            null: false
+      t.float   :stop_lon,            null: false
+      t.string  :zone_id
+      t.string  :stop_url
       t.integer :location_type
       t.integer :parent_station
-      t.string :stop_timezone
+      t.string  :stop_timezone
       t.integer :wheelchair_boarding
 
       t.references :data_set, null: false, index: true

@@ -3,8 +3,8 @@ class CreateGtfsEngineTransfers < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :from_stop_id,       null: false
-      t.string :to_stop_id,         null: false
+      t.string  :from_stop_id,      null: false
+      t.string  :to_stop_id,        null: false
       t.integer :transfer_type,     null: false
       t.integer :min_transfer_time
 

@@ -51,10 +51,9 @@ module GtfsEngine
         assoc.macro == :has_many && assoc.options[:inverse_of] == :data_set
       end.each_with_object({}) do |(name, _), hash|
         controller_class = association_controller_class name
-        model_class      = association_model_class(name)
         hash[name] = {
             count: send(name).count,
-            filters: unalias(controller_class.filters, model_class.aliases)
+            filters: controller_class.filters
         }
       end
     end
@@ -69,16 +68,6 @@ module GtfsEngine
       mod = self.class.name.deconstantize
       model = name.to_s.classify
       "#{mod}::#{model}".constantize
-    end
-
-    def unalias(filters, aliases)
-      aliases = reverse_hash aliases
-      return filters unless GtfsEngine.send_aliased_keys
-      filters.map {|filter| aliases[filter] or filter }
-    end
-
-    def reverse_hash(hash)
-      Hash[*hash.to_a.flatten.reverse]
     end
   end
 end

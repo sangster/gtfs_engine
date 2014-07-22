@@ -15,6 +15,12 @@
 module GtfsEngine
   class FeedInfosController < ApplicationController
     include Concerns::Controllers::Gtfs
-    filters %i{publisher_name publisher_url lang start_date end_date version}
+
+    filters :feed_publisher_name,
+            :feed_publisher_url,
+            :feed_lang,
+            :feed_start_date,
+            :feed_end_date,
+            :feed_version
   end
 end

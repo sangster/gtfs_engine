@@ -23,7 +23,5 @@ module GtfsEngine
     has_many :stop_times,  inverse_of: :trip, shared_key: :trip_id
 
     has_many :stops, through: :stop_times
-
-    prefix_aliases :trip, *%i(headsign short_name)
   end
 end

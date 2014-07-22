@@ -3,15 +3,15 @@ class CreateGtfsEngineRoutes < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :route_id,         null: false
-      t.string :agency_id
-      t.string :route_short_name, null: false
-      t.string :route_long_name,  null: false
-      t.string :route_desc
-      t.integer :route_type,      null: false
+      t.string  :route_id,         null: false
+      t.string  :agency_id
+      t.string  :route_short_name, null: false
+      t.string  :route_long_name,  null: false
+      t.string  :route_desc
+      t.integer :route_type,       null: false
       t.integer :route_url
-      t.string :route_color
-      t.string :route_text_color
+      t.string  :route_color
+      t.string  :route_text_color
 
       t.references :data_set, null: false, index: true
     end

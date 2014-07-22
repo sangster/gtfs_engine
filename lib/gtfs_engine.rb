@@ -25,8 +25,6 @@ module GtfsEngine
   autoload :Concerns
 
   class << self
-    attr_accessor :send_aliased_keys
-
     def sources(&block)
       @sources ||= Sources.new GtfsReader.config
       block.call @sources
