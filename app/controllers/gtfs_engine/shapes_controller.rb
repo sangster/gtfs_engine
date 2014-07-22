@@ -15,6 +15,9 @@
 module GtfsEngine
   class ShapesController < ApplicationController
     include Concerns::Controllers::Gtfs
-    filters %i{pt_lat pt_lon pt_sequence}
+
+    filters :shape_pt_lat,
+            :shape_pt_lon,
+            :shape_pt_sequence
   end
 end

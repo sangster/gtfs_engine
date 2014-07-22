@@ -15,9 +15,18 @@
 module GtfsEngine
   class CalendarsController < ApplicationController
     include Concerns::Controllers::Gtfs
+
     gtfs_id :service_id
-    filters %i{monday tuesday wednesday thursday friday saturday sunday
-               start_date end_date}
+
+    filters :monday,
+            :tuesday,
+            :wednesday,
+            :thursday,
+            :friday,
+            :saturday,
+            :sunday,
+            :start_date,
+            :end_date
 
     def for_date
       date = params[:YYYY_MM_DD]

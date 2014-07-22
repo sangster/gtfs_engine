@@ -37,7 +37,7 @@ module GtfsEngine::Concerns::Controllers::Gtfs
 
     def filters(*attrs)
       attrs.flatten!
-      @filters = unalias attrs unless attrs.empty?
+      @filters = attrs unless attrs.empty?
       @filters ||= []
     end
 
@@ -46,20 +46,6 @@ module GtfsEngine::Concerns::Controllers::Gtfs
     def record_class
       @record_class ||= begin
         "#{name.deconstantize}::#{controller_name.classify}".constantize
-      end
-    end
-
-    #@return <Object> the given collection with the aliased names replaced
-    # with their prefixed names
-    def unalias(attrs)
-      aliases = record_class.aliases
-      case attrs
-      when Hash
-        attrs.each_with_object({}) do |(k,v), hash|
-          hash[(aliases[k] or k).to_s] = v.to_s
-        end
-      else
-        attrs.map {|at| (aliases[at] or at).to_s }
       end
     end
   end
@@ -82,14 +68,15 @@ module GtfsEngine::Concerns::Controllers::Gtfs
   # derived from the query string
   def filter
     @filter ||= begin
-      query = self.class.unalias self.query
+      query = self.query
       unknown = query.map do |q, v|
         query[q] = true if v.blank? # blank value indicates boolean filter
-        filters.include?(q) ? nil : q
+        filters.include?(q.to_sym) ? nil : q
       end.compact
-
+require 'pry'
+      binding.pry
       unless unknown.empty?
-        raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filters'
+        raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filter'
       end
       query_params = ActionController::Parameters.new query
       query_params.permit filters

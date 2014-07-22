@@ -22,7 +22,5 @@ module GtfsEngine
       has_many :origin_rules,      inverse_of: :stop, class_name: 'fare_rule'
       has_many :destination_rules, inverse_of: :stop, class_name: 'fare_rule'
     end
-
-    prefix_aliases :stop, *%i(code name desc lat lon url timezone)
   end
 end

@@ -25,20 +25,8 @@ module GtfsEngine
     end
 
     def create_fields
-      send_aliases = GtfsEngine.send_aliased_keys
-      unprefixed + (send_aliases ? aliases.keys : aliases.values)
-    end
-
-    def unprefixed
-      model_class.unprefixed_attributes
-    end
-
-    def aliases
-      model_class.aliases
-    end
-
-    def model_class
-      @class ||= "#{controller.class.name.deconstantize}::#{model}".constantize
+      attributes = GtfsEngine.const_get(model).attribute_names
+      attributes - %w(id data_set_id)
     end
   end
 end

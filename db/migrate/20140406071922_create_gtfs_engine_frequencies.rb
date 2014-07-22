@@ -3,7 +3,7 @@ class CreateGtfsEngineFrequencies < ActiveRecord::Migration
 
   def change
     create_table TABLE do |t|
-      t.string :trip_id,       null: false
+      t.string  :trip_id,      null: false
       t.integer :start_time,   null: false
       t.integer :end_time,     null: false
       t.integer :headway_secs, null: false
