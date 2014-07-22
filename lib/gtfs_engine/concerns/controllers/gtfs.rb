@@ -71,11 +71,12 @@ module GtfsEngine::Concerns::Controllers::Gtfs
       query = self.query
       unknown = query.map do |q, v|
         query[q] = true if v.blank? # blank value indicates boolean filter
-        filters.include?(q) ? nil : q
+        filters.include?(q.to_sym) ? nil : q
       end.compact
-
+require 'pry'
+      binding.pry
       unless unknown.empty?
-        raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filters'
+        raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filter'
       end
       query_params = ActionController::Parameters.new query
       query_params.permit filters
