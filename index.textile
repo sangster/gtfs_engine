@@ -11,7 +11,7 @@ This project is currently a sub-component of the "KnowTime Server":knowtime-git 
 
 h2. Models
 
-* "DataSet":{{ site.url }}/models/data-set
+* "DataSet":{{ site.url }}/models/data_set
 
 * "Agency":{{ site.url }}/models/agency
 * "Stop":{{ site.url }}/models/stop

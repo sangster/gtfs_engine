@@ -7,7 +7,7 @@ required_model: true
 
 h2. Transfer
 
-bq. Rules for making connections at transfer points between routes.
+bq(subtitle). Rules for making connections at transfer points between routes.
 
 bq. Trip planners normally calculate transfer points based on the relative proximity of stops in each route. For potentially ambiguous stop pairs, or transfers where you want to specify a particular choice, use transfers.txt to define additional rules for making connections between routes.
 

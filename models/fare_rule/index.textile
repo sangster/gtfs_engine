@@ -7,7 +7,7 @@ required_model: true
 
 h2. FareRule
 
-bq. Rules for applying fare information for a transit organization's routes.
+bq(subtitle). Rules for applying fare information for a transit organization's routes.
 
 bq. The fare_rules table allows you to specify how fares in fare_attributes.txt apply to an itinerary. Most fare structures use some combination of the following rules:
 

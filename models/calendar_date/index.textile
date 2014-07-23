@@ -7,7 +7,7 @@ required_model: true
 
 h2. CalendarDate
 
-bq. Exceptions for the service IDs defined in the calendar.txt file. If calendar_dates.txt includes ALL dates of service, this file may be specified instead of calendar.txt.
+bq(subtitle). Exceptions for the service IDs defined in the calendar.txt file. If calendar_dates.txt includes ALL dates of service, this file may be specified instead of calendar.txt.
 
 bq. The calendar_dates table allows you to explicitly activate or disable service IDs by date. You can use it in two ways.
 

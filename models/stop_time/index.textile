@@ -7,7 +7,7 @@ required_model: true
 
 h2. StopTime %(required)%
 
-bq. Times that a vehicle arrives at and departs from individual stops for each trip.
+bq(subtitle). Times that a vehicle arrives at and departs from individual stops for each trip.
 
 h4. trip_id %(required)%
 

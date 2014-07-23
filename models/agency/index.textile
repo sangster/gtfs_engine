@@ -7,7 +7,7 @@ required_model: true
 
 h2. Agency %(required)%
 
-bq. One or more transit agencies that provide the data in this feed.
+bq(subtitle). One or more transit agencies that provide the data in this feed.
 
 h4. agency_id %(required; unique)%
 

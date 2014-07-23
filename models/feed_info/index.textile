@@ -7,7 +7,7 @@ required_model: true
 
 h2. FeedInfo
 
-bq. Additional information about the feed itself, including publisher, version, and expiration information.
+bq(subtitle). Additional information about the feed itself, including publisher, version, and expiration information.
 
 bq. The file contains information about the feed itself, rather than the services that the feed describes. GTFS currently has an agency.txt file to provide information about the agencies that operate the services described by the feed. However, the publisher of the feed is sometimes a different entity than any of the agencies (in the case of regional aggregators). In addition, there are some fields that are really feed-wide settings, rather than agency-wide.
 

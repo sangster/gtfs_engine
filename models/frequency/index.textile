@@ -5,9 +5,9 @@ cite_google: true
 required_model: true
 ---
 
-h2. Frequency%
+h2. Frequency
 
-bq. Headway (time between trips) for routes with variable frequency of service.
+bq(subtitle). Headway (time between trips) for routes with variable frequency of service.
 
 bq. This table is intended to represent schedules that don't have a fixed list of stop times. When trips are defined in frequencies.txt, the trip planner ignores the absolute values of the arrival_time and departure_time fields for those trips in stop_times.txt. Instead, the stop_times table defines the sequence of stops and the time difference between each stop.
 

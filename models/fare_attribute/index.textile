@@ -7,7 +7,7 @@ required_model: true
 
 h2. FareAttribute
 
-bq. Fare information for a transit organization's routes.
+bq(subtitle). Fare information for a transit organization's routes.
 
 h4. fare_id %(required; unique)%
 

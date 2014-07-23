@@ -7,7 +7,7 @@ required_model: true
 
 h2. Calendar %(required)%
 
-bq. Dates for service IDs using a weekly schedule. Specify when service starts and ends, as well as days of the week where service is available.
+bq(subtitle). Dates for service IDs using a weekly schedule. Specify when service starts and ends, as well as days of the week where service is available.
 
 h4. service_id %(required)%
 

@@ -7,7 +7,7 @@ required_model: true
 
 h2. Route %(required)%
 
-bq. Transit routes. A route is a group of trips that are displayed to riders as a single service.
+bq(subtitle). Transit routes. A route is a group of trips that are displayed to riders as a single service.
 
 h4. route_id %(required; unique)%
 

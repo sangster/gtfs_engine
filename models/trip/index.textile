@@ -7,7 +7,7 @@ required_model: true
 
 h2. Trip %(required)%
 
-bq. Trips for each route. A trip is a sequence of two or more stops that occurs at specific time.
+bq(subtitle). Trips for each route. A trip is a sequence of two or more stops that occurs at specific time.
 
 h4. route_id %(required)%
 

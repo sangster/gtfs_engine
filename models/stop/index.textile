@@ -7,7 +7,7 @@ required_model: true
 
 h2. Stop %(required)%
 
-bq. Individual locations where vehicles pick up or drop off passengers.
+bq(subtitle). Individual locations where vehicles pick up or drop off passengers.
 
 h4. stop_id %(required; unique)%
 

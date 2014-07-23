@@ -7,7 +7,7 @@ required_model: true
 
 h2. Shape
 
-bq. Rules for drawing lines on a map to represent a transit organization's routes.
+bq(subtitle). Rules for drawing lines on a map to represent a transit organization's routes.
 
 h4. shape_id %(required)%
 
