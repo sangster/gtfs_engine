@@ -46,17 +46,7 @@ function createTableOfContents( elem ) {
 
   for ( i = 0, s = headers.length; i < s; ++i ) {
     item = document.createElement( 'li' );
-    id = headers[ i ].id;
-
-    if ( id.length === 0 ) {
-      id = headers[ i ].id = "header" + i;
-    }
-
-    link = document.createElement( 'a' );
-    link.setAttribute( 'href', '#' + id );
-    link.textContent = headers[ i ].textContent;
-
-    item.appendChild( link );
+    item.appendChild( headerLink( headers[ i ], i ) );
     table.appendChild( item );
   }
 
@@ -64,6 +54,21 @@ function createTableOfContents( elem ) {
 
   return table;
 }
+
+function headerLink( header, index ) {
+    var id, link;
+
+    if ( header.id.length === 0 ) {
+      header.id = "header" + index;
+    }
+
+    link = document.createElement( 'a' );
+    link.setAttribute( 'href', '#' + header.id );
+    link.textContent = header.textContent;
+
+    return link;
+}
+
 
 function prependTableOfContent( elem ) {
   elem.insertBefore( createTableOfContents( elem ), elem.firstChild );
