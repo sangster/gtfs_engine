@@ -9,7 +9,7 @@ h2. Route %(required)%
 
 bq(subtitle). Transit routes. A route is a group of trips that are displayed to riders as a single service.
 
-h3. Fields
+h3. Resources
 
 h4. route_id %(required; unique)%
 

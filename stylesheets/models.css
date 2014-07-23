@@ -12,3 +12,11 @@ blockquote.subtitle {
     padding: 0;
     margin: 0 2em 0 2em;
 }
+
+pre.get {
+    padding: 0.25em 2em 0.25em 2em;
+}
+code.get {
+    color: #33cc33;
+}
+
