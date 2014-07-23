@@ -17,15 +17,15 @@ h2. Models
 * "Stop":{{ site.url }}/models/stop
 * "Route":{{ site.url }}/models/route
 * "Trip":{{ site.url }}/models/trip
-* "StopTime"
-* "Calendar"
-* "CalendarDate"
-* "FareAttribute"
-* "FareRule"
-* "Shape"
-* "Frequency"
-* "Transfer"
-* "FeedInfo"
+* "StopTime":{{ site.url }}/models/stop_time
+* "Calendar":{{ site.url }}/models/calendar
+* "CalendarDate":{{ site.url }}/models/calendar_date
+* "FareAttribute":{{ site.url }}/models/fare_attribute
+* "FareRule":{{ site.url }}/models/fare_rule
+* "Shape":{{ site.url }}/models/shape
+* "Frequency":{{ site.url }}/models/frequency
+* "Transfer":{{ site.url }}/models/transfer
+* "FeedInfo":{{ site.url }}/models/feed_info
 
 
 h2. JSend
