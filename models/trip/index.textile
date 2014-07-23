@@ -9,6 +9,8 @@ h2. Trip %(required)%
 
 bq(subtitle). Trips for each route. A trip is a sequence of two or more stops that occurs at specific time.
 
+h3. Fields
+
 h4. route_id %(required)%
 
 bq. The *route_id* field contains an ID that uniquely identifies a route. This value is referenced from the routes.txt file.

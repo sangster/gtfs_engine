@@ -9,6 +9,8 @@ h2. Calendar %(required)%
 
 bq(subtitle). Dates for service IDs using a weekly schedule. Specify when service starts and ends, as well as days of the week where service is available.
 
+h3. Fields
+
 h4. service_id %(required)%
 
 bq. The *service_id* contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each *service_id* value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file.

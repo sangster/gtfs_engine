@@ -9,6 +9,8 @@ h2. StopTime %(required)%
 
 bq(subtitle). Times that a vehicle arrives at and departs from individual stops for each trip.
 
+h3. Fields
+
 h4. trip_id %(required)%
 
 bq. The *trip_id* field contains an ID that identifies a trip. This value is referenced from the trips.txt file.

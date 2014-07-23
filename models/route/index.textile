@@ -9,6 +9,8 @@ h2. Route %(required)%
 
 bq(subtitle). Transit routes. A route is a group of trips that are displayed to riders as a single service.
 
+h3. Fields
+
 h4. route_id %(required; unique)%
 
 bq. The *route_id* field contains an ID that uniquely identifies a route. The *route_id* is dataset unique.

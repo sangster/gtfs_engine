@@ -17,6 +17,8 @@ bq. The fare_rules table allows you to specify how fares in fare_attributes.txt 
 
 bq. For examples that demonstrate how to specify a fare structure with fare_rules.txt and fare_attributes.txt, see "FareExamples":http://code.google.com/p/googletransitdatafeed/wiki/FareExamples in the GoogleTransitDataFeed open source project wiki.
 
+h3. Fields
+
 h4. fare_id %(required; unique)%
 
 bq. The *fare_id* field contains an ID that uniquely identifies a fare class. This value is referenced from the fare_attributes.txt file.

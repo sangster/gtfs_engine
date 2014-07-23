@@ -9,6 +9,8 @@ h2. Agency %(required)%
 
 bq(subtitle). One or more transit agencies that provide the data in this feed.
 
+h3. Fields
+
 h4. agency_id %(required; unique)%
 
 bq. The *agency_id* field is an ID that uniquely identifies a transit agency. A transit feed may represent data from more than one agency. The *agency_id* is dataset unique. This field is optional for transit feeds that only contain data for a single agency.

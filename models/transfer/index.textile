@@ -11,6 +11,8 @@ bq(subtitle). Rules for making connections at transfer points between routes.
 
 bq. Trip planners normally calculate transfer points based on the relative proximity of stops in each route. For potentially ambiguous stop pairs, or transfers where you want to specify a particular choice, use transfers.txt to define additional rules for making connections between routes.
 
+h3. Fields
+
 h4. from_stop_id %(required)%
 
 bq. The *from_stop_id* field contains a stop ID that identifies a stop or station where a connection between routes begins. Stop IDs are referenced from the stops.txt file. If the stop ID refers to a station that contains multiple stops, this transfer rule applies to all stops in that station.

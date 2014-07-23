@@ -9,6 +9,8 @@ h2. Shape
 
 bq(subtitle). Rules for drawing lines on a map to represent a transit organization's routes.
 
+h3. Fields
+
 h4. shape_id %(required)%
 
 bq. The *shape_id* field contains an ID that uniquely identifies a shape.

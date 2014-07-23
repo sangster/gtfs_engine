@@ -9,6 +9,8 @@ h2. Stop %(required)%
 
 bq(subtitle). Individual locations where vehicles pick up or drop off passengers.
 
+h3. Fields
+
 h4. stop_id %(required; unique)%
 
 bq. The *stop_id* field contains an ID that uniquely identifies a stop or station. Multiple routes may use the same stop. The *stop_id* is dataset unique.

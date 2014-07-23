@@ -9,6 +9,8 @@ h2. FareAttribute
 
 bq(subtitle). Fare information for a transit organization's routes.
 
+h3. Fields
+
 h4. fare_id %(required; unique)%
 
 bq. The *fare_id* field contains an ID that uniquely identifies a fare class. The *fare_id* is dataset unique.

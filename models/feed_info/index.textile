@@ -11,6 +11,8 @@ bq(subtitle). Additional information about the feed itself, including publisher,
 
 bq. The file contains information about the feed itself, rather than the services that the feed describes. GTFS currently has an agency.txt file to provide information about the agencies that operate the services described by the feed. However, the publisher of the feed is sometimes a different entity than any of the agencies (in the case of regional aggregators). In addition, there are some fields that are really feed-wide settings, rather than agency-wide.
 
+h3. Fields
+
 h4. feed_publisher_name %(required)%
 
 bq. The *feed_publisher_name* field contains the full name of the organization that publishes the feed. (This may be the same as one of the *agency_name* values in agency.txt.) GTFS-consuming applications can display this name when giving attribution for a particular feed's data.
