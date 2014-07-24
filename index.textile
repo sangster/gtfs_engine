@@ -25,6 +25,33 @@ And then you only have to mount the engine at some path. Add something like the 
   mount GtfsEngine::Engine, at: '/gtfs'
 {% endhighlight %}
 
+Finally, you need to import the DB migration files that define the GTFS resources used by this engine:
+
+{% highlight bash %}
+  rake gtfs_engine:install:migrations
+{% endhighlight %}
+
+
+h3. Sources
+
+To actually get GTFS data into your database, you need to specify the sources of your data. The easiest way to do this is to create an "initializer file":http://guides.rubyonrails.org/configuring.html#using-initializer-files that species all of the GTFS data sources you are interested in. Here is an example:
+
+{% highlight ruby %}
+GtfsEngine.sources do |source|
+  source.halifax do
+    title 'Halifax Metro'
+    url 'http://www.example.com/metrotransit.zip'
+  end
+  source.edmonton do
+    title "Edmonton Transit System"
+    url 'http://example.com/etsdatafeed.zip'
+  end
+end
+{% endhighlight %}
+
+That being said, the source data is only used when updating the data sources. As this is most often done via @rake@ takes (see below), you may want to restrict your configuration to that.
+
+
 h2. Resources
 
 * "DataSet":{{ site.url }}/resources/data_set
@@ -54,4 +81,72 @@ The GTFS Engine currently returns only one type of content: "JSON(JavaScript Obj
 [gtfs-reader-git]{{ site.data.urls.gtfs_reader_git }}
 [wiki-json]{{ site.data.urls.wiki_json }}
 [jsend]{{ site.data.urls.jsend }}
+
+h2. Rake Tasks
+
+This Rails Engine provides a few @rake@ tasks to help you maintain your GTFS data sets.
+
+h3. Install Migration
+
+gc. rake gtfs_engine:install:migrations
+
+Like most Rails Engines, this engine defines many @ActiveRecord@ classes, representing the various GTFS resources. This rake task will copy these migration files to your Rails app's @db/migrate@ directory.
+
+h3. List the DataSets in the database
+
+gc. rake gtfs_engine:sets:list
+
+This lists all of the DataSets in the database. The sets are ordered under a heading for each source.
+
+h4. Example Output
+
+<code>
+halifax
+        ac43f674eaa0cf1:0: 2014-07-19 00:25:55 -0300 (http://www.halifax.ca/metrotransit/googletransitfeed/google_transit.zip)
+        d57-4f669d05eedfd: 2014-07-19 00:52:32 -0300 (http://localhost/sample-feed.zip)
+
+edmonton
+        52699964659bcf1:0: 2014-07-19 00:31:46 -0300 (http://webdocs.edmonton.ca/transit/etsdatafeed/google_transit.zip)
+</code>
+
+h3. Update a DataSource
+
+gc. rake gtfs_engine:update[name]
+
+Checks the URL for the named Data Source and, if it's new, download it and insert its resources into the DB.
+
+h3. Update every DataSource
+
+gc. rake gtfs_engine:update
+
+Updates every DataSource configured with @GtfsEngine.sources@.
+
+h3. Delete a DataSource
+
+gc. rake gtfs_engine:sets:delete[name,etag]
+
+Deletes the DataSet from the *name*d source with the given *etag*.
+
+h3. Count the number of resources in a DataSet
+
+gc. rake gtfs_engine:sets:count[name,etag]
+
+h4. Example Output
+
+<code>
+Model count for halifax data set with etag ac43f674eaa0cf1:0
+               agencies: 1
+              calendars: 14
+         calendar_dates: 26
+        fare_attributes: 0
+             fare_rules: 0
+             feed_infos: 0
+            frequencies: 0
+                 routes: 156
+                 shapes: 124191
+                  stops: 2468
+             stop_times: 588376
+              transfers: 0
+                  trips: 14853
+</code>
 
