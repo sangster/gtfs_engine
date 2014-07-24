@@ -9,6 +9,22 @@ This "GTFS(General Transit Feed Specification) Engine" is a "Rails Engine":rails
 
 This project is currently a sub-component of the "KnowTime Server":knowtime-git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs-reader-git, to actually process the __.zip__ files in which GTFS feeds are contained.
 
+h2. Configuration
+
+You can add @gtf-engine@ to your Rails application the same way as you would any Rails Engine. Simply:
+
+Add the following to your @Gemfile@:
+
+{% highlight ruby %}
+  gem 'gtfs-engine'
+{% endhighlight %}
+
+And then you only have to mount the engine at some path. Add something like the following to your @config/routes.rb@ file:
+
+{% highlight ruby %}
+  mount GtfsEngine::Engine, at: '/gtfs'
+{% endhighlight %}
+
 h2. Resources
 
 * "DataSet":{{ site.url }}/resources/data_set
