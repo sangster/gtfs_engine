@@ -9,23 +9,23 @@ This "GTFS(General Transit Feed Specification) Engine" is a "Rails Engine":rails
 
 This project is currently a sub-component of the "KnowTime Server":knowtime-git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs-reader-git, to actually process the __.zip__ files in which GTFS feeds are contained.
 
-h2. Models
+h2. Resources
 
-* "DataSet":{{ site.url }}/models/data_set
+* "DataSet":{{ site.url }}/resources/data_set
 
-* "Agency":{{ site.url }}/models/agency
-* "Stop":{{ site.url }}/models/stop
-* "Route":{{ site.url }}/models/route
-* "Trip":{{ site.url }}/models/trip
-* "StopTime":{{ site.url }}/models/stop_time
-* "Calendar":{{ site.url }}/models/calendar
-* "CalendarDate":{{ site.url }}/models/calendar_date
-* "FareAttribute":{{ site.url }}/models/fare_attribute
-* "FareRule":{{ site.url }}/models/fare_rule
-* "Shape":{{ site.url }}/models/shape
-* "Frequency":{{ site.url }}/models/frequency
-* "Transfer":{{ site.url }}/models/transfer
-* "FeedInfo":{{ site.url }}/models/feed_info
+* "Agency":{{ site.url }}/resources/agency
+* "Stop":{{ site.url }}/resources/stop
+* "Route":{{ site.url }}/resources/route
+* "Trip":{{ site.url }}/resources/trip
+* "StopTime":{{ site.url }}/resources/stop_time
+* "Calendar":{{ site.url }}/resources/calendar
+* "CalendarDate":{{ site.url }}/resources/calendar_date
+* "FareAttribute":{{ site.url }}/resources/fare_attribute
+* "FareRule":{{ site.url }}/resources/fare_rule
+* "Shape":{{ site.url }}/resources/shape
+* "Frequency":{{ site.url }}/resources/frequency
+* "Transfer":{{ site.url }}/resources/transfer
+* "FeedInfo":{{ site.url }}/resources/feed_info
 
 
 h2. JSend
