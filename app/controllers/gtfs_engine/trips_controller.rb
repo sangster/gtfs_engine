@@ -17,7 +17,7 @@ module GtfsEngine
     include Concerns::Controllers::Gtfs
 
     filters :service_id,
-            :headsign,
+            :trip_headsign,
             :short_name,
             :direction_id,
             :block_id,
