@@ -17,7 +17,11 @@ The *id* field contains an ID that uniquely identifies a DataSet. The *id* is da
 
 h4. name %(required)%
 
-The *name* of the source which this DataSet came from.
+The *name* of the source which this DataSet came from. This name is a very short identifier for the data set. It will server as the key for list of data sets returned for this source.
+
+h4. title %(required)%
+
+A more verbose version of *name* which describes the data set. This text is more free-form, but still be a proper noun phrase. For instance, if the *name* is @"halifax"@, the *title* could be @"Halifax Metro Transit"@.
 
 h4. url %(required)%
 
