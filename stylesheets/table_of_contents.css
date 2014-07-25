@@ -1,0 +1,10 @@
+ul.toc, ul.toc ul {
+    margin: 0;
+    font-size: 92%;
+    padding: 0 0 0 1.5em;
+}
+
+ul.toc > li > a {
+    font-weight: bold;
+}
+

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/styles.css">
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/models.css">
     <link rel="stylesheet" href="{{ site.url }}/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="{{ site.url }}/stylesheets/table_of_contents.css">
     <script src="{{ site.url }}/javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -19,7 +20,7 @@
       <script type="text/javascript">
         //<![CDATA[
         document.addEventListener( 'DOMContentLoaded', function() {
-          prependTableOfContent( document.querySelector( '{{ page.toc }}' ) );
+          createToc( document.querySelector( '{{ page.toc }}' ), 'removeTopLevel' );
         } );
         //]]>
       </script>
