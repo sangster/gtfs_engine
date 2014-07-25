@@ -1,9 +1,18 @@
 ul.toc, ul.toc ul {
+    list-style: none;
+}
+ul.toc {
+    float: right;
+    font-size: 92%;
+    background: inherit;
+    padding: 1em;
+    margin: 0.5em 0 1em 1em;
+}
+ul.toc ul {
     margin: 0;
     font-size: 92%;
     padding: 0 0 0 1.5em;
 }
-
 ul.toc > li > a {
     font-weight: bold;
 }
