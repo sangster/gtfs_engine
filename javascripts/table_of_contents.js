@@ -1,4 +1,6 @@
 ( function( root ) {
+    var headerLinkIndex = 0;
+
     root.createToc = function( parent, removeTopLevel ) {
         var headers = cleanHeaders( findHeaders( parent ), removeTopLevel ),
         list = createList( headersHierarchy( headers ) );
@@ -102,7 +104,7 @@
             children = items[ i ].children;
 
             item = document.createElement( 'li' );
-            item.appendChild( headerLink( head, i ) );
+            item.appendChild( headerLink( head ) );
             list.appendChild( item );
 
             if ( children.length !== 0 ) {
@@ -114,8 +116,8 @@
     }
 
 
-    function headerLink( header, index ) {
-        var id, link;
+    function headerLink( header ) {
+        var id, link, index = headerLinkIndex++;
 
         if ( header.id.length === 0 ) {
             header.id = "header" + index;
