@@ -3,6 +3,7 @@ title: FareAttribute
 layout: default
 cite_google: true
 required_model: true
+toc: removeTopLevel
 ---
 
 h2. FareAttribute

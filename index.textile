@@ -1,6 +1,7 @@
 ---
 title: GTFS Engine
 layout: default
+toc: yes
 ---
 
 h2. Introduction
@@ -43,7 +44,7 @@ GtfsEngine.sources do |source|
     url 'http://www.example.com/metrotransit.zip'
   end
   source.edmonton do
-    title "Edmonton Transit System"
+    title 'Edmonton Transit System'
     url 'http://example.com/etsdatafeed.zip'
   end
 end
@@ -76,64 +77,70 @@ h2. JSend
 The GTFS Engine currently returns only one type of content: "JSON(JavaScript Object Notation)":wiki-json; moreover, the returned data is wrapped in a "JSend-compliant response":jsend
 
 
-[rails-engine]{{ site.data.urls.rails_engine }}
-[knowtime-git]{{ site.data.urls.knowtime_git }}
-[gtfs-reader-git]{{ site.data.urls.gtfs_reader_git }}
-[wiki-json]{{ site.data.urls.wiki_json }}
-[jsend]{{ site.data.urls.jsend }}
-
 h2. Rake Tasks
 
 This Rails Engine provides a few @rake@ tasks to help you maintain your GTFS data sets.
 
 h3. Install Migration
 
-gc. rake gtfs_engine:install:migrations
+{% highlight sh %}
+rake gtfs_engine:install:migrations
+{% endhighlight %}
 
 Like most Rails Engines, this engine defines many @ActiveRecord@ classes, representing the various GTFS resources. This rake task will copy these migration files to your Rails app's @db/migrate@ directory.
 
 h3. List the DataSets in the database
 
-gc. rake gtfs_engine:sets:list
+{% highlight sh %}
+rake gtfs_engine:sets:list
+{% endhighlight %}
 
 This lists all of the DataSets in the database. The sets are ordered under a heading for each source.
 
 h4. Example Output
 
-<code>
+<pre>
 halifax
         ac43f674eaa0cf1:0: 2014-07-19 00:25:55 -0300 (http://www.halifax.ca/metrotransit/googletransitfeed/google_transit.zip)
         d57-4f669d05eedfd: 2014-07-19 00:52:32 -0300 (http://localhost/sample-feed.zip)
 
 edmonton
         52699964659bcf1:0: 2014-07-19 00:31:46 -0300 (http://webdocs.edmonton.ca/transit/etsdatafeed/google_transit.zip)
-</code>
+</pre>
 
 h3. Update a DataSource
 
-gc. rake gtfs_engine:update[name]
+{% highlight sh %}
+rake gtfs_engine:update[name]
+{% endhighlight %}
 
 Checks the URL for the named Data Source and, if it's new, download it and insert its resources into the DB.
 
 h3. Update every DataSource
 
-gc. rake gtfs_engine:update
+{% highlight sh %}
+rake gtfs_engine:update
+{% endhighlight %}
 
 Updates every DataSource configured with @GtfsEngine.sources@.
 
 h3. Delete a DataSource
 
-gc. rake gtfs_engine:sets:delete[name,etag]
+{% highlight sh %}
+rake gtfs_engine:sets:delete[name,etag]
+{% endhighlight %}
 
-Deletes the DataSet from the *name*d source with the given *etag*.
+Deletes the DataSet from the [*name*]d source with the given *etag*.
 
-h3. Count the number of resources in a DataSet
+h3. Count the Resources in a DataSet
 
-gc. rake gtfs_engine:sets:count[name,etag]
+{% highlight sh %}
+rake gtfs_engine:sets:count[name,etag]
+{% endhighlight %}
 
 h4. Example Output
 
-<code>
+<pre>
 Model count for halifax data set with etag ac43f674eaa0cf1:0
                agencies: 1
               calendars: 14
@@ -148,5 +155,14 @@ Model count for halifax data set with etag ac43f674eaa0cf1:0
              stop_times: 588376
               transfers: 0
                   trips: 14853
-</code>
+</pre>
+
+
+
+
+[rails-engine]{{ site.data.urls.rails_engine }}
+[knowtime-git]{{ site.data.urls.knowtime_git }}
+[gtfs-reader-git]{{ site.data.urls.gtfs_reader_git }}
+[wiki-json]{{ site.data.urls.wiki_json }}
+[jsend]{{ site.data.urls.jsend }}
 

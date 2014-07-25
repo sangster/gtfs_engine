@@ -20,7 +20,8 @@
       <script type="text/javascript">
         //<![CDATA[
         document.addEventListener( 'DOMContentLoaded', function() {
-          createToc( document.querySelector( '{{ page.toc }}' ), 'removeTopLevel' );
+          var elem = document.querySelector( 'div.wrapper section' );
+          createToc( elem, '{{ page.toc }}' === 'removeTopLevel' );
         } );
         //]]>
       </script>

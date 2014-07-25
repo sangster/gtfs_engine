@@ -3,6 +3,7 @@ title: Stop
 layout: default
 cite_google: true
 required_model: true
+toc: removeTopLevel
 ---
 
 h2. Stop %(required)%

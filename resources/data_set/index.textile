@@ -1,7 +1,7 @@
 ---
 title: DataSet
 layout: default
-toc: div.wrapper section
+toc: removeTopLevel
 ---
 
 h2. DataSet

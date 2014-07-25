@@ -3,6 +3,7 @@ title: FeedInfo
 layout: default
 cite_google: true
 required_model: true
+toc: removeTopLevel
 ---
 
 h2. FeedInfo

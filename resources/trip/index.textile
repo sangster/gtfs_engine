@@ -3,7 +3,7 @@ title: Trip
 layout: default
 cite_google: true
 required_model: true
-toc: .wrapper section
+toc: removeTopLevel
 ---
 
 h2. Trip %(required)%

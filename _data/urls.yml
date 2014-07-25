@@ -1,7 +1,7 @@
 ---
 gtfs_ref: https://developers.google.com/transit/gtfs/reference
 rails_engine: http://guides.rubyonrails.org/engines.html
-knowtime_git: //github.com/sangster/knowtime-git
+knowtime_git: //github.com/sangster/knowtime-server
 gtfs_reader_git: //github.com/sangster/gtfs-reader
 wiki_json: //en.wikipedia.org/wiki/JSON
 jsend: http://labs.omniti.com/labs/jsend
