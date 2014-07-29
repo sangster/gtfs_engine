@@ -18,6 +18,6 @@ end
 
 group :test do
   gem 'rspec', '~> 3.0', require: false
-  gem 'simplecov', '~> 0.7', require: false
+  gem 'simplecov', '>= 0.7', require: false
   gem 'factory_girl_rails', '~> 4.4'
 end
