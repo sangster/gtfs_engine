@@ -59,7 +59,7 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.3)
       oauth2
-    gtfs-reader (0.2.7)
+    gtfs-reader (0.2.8)
       activesupport (~> 4.0)
       colorize (~> 0.7)
       log4r (~> 1.1)
