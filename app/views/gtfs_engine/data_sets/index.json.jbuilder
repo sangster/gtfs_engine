@@ -16,12 +16,10 @@ json.ignore_nil! true
 
 json.status 'success'
 json.data do
-  json.data_sets do
-    @data_sets.each do |name, sets|
-      json.set! name do
-        json.array! sets do |set|
-          json.extract! set, *%i(id name title url etag created_at)
-        end
+  @data_sets.each do |name, sets|
+    json.set! name do
+      json.array! sets do |set|
+        json.extract! set, *%i(id name title url etag created_at)
       end
     end
   end
