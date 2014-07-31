@@ -14,8 +14,6 @@
 # along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
 json.status 'success'
 json.data do
-  json.set! 'data_set' do
-    json.extract! @data_set, *%i(id name title url etag created_at)
-    json.details @data_set.details
-  end
+  json.extract! @data_set, *%i(id name title url etag created_at)
+  json.details @data_set.details
 end
