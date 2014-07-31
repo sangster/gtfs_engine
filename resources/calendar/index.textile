@@ -2,7 +2,6 @@
 title: Calendar
 layout: default
 cite_google: true
-required_model: true
 toc: removeTopLevel
 ---
 
@@ -14,7 +13,7 @@ h3. Fields
 
 h4. service_id %(required)%
 
-bq. The *service_id* contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each *service_id* value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file.
+The *service_id* contains an ID that uniquely identifies a set of dates when service is available for one or more routes. Each *service_id* value can appear at most once in a calendar.txt file. This value is dataset unique. It is referenced by the trips.txt file.
 
 h4. <em>Days of the Week...</em> %(required)%
 
@@ -36,13 +35,13 @@ Each field contains a binary value that indicates whether the service is valid f
 
 h4. start_date %(required)%
 
-bq.. The *start_date* field contains the start date for the service.
+The *start_date* field contains the start date for the service.
 
-The *start_date* field's value should be in YYYYMMDD format.
+The *start_date* field's value should be in @YYYYMMDD@ format.
 
 h4. end_date %(required)%
 
-bq.. The *end_date* field contains the end date for the service. This date is included in the service interval.
+The *end_date* field contains the end date for the service. This date is included in the service interval.
 
-The *end_date* field's value should be in YYYYMMDD format.
+The *end_date* field's value should be in @YYYYMMDD@ format.
 

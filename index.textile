@@ -10,6 +10,10 @@ This "GTFS(General Transit Feed Specification) Engine" is a "Rails Engine":rails
 
 This project is currently a sub-component of the "KnowTime Server":knowtime-git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs-reader-git, to actually process the __.zip__ files in which GTFS feeds are contained.
 
+h2. Example
+
+A live example is running as part of the KnowTime Server project at "api.knowtime.ca/v2/gtfs":http://api.knowtime.ca/v2/gtfs
+
 h2. Configuration
 
 You can add @gtf-engine@ to your Rails application the same way as you would any Rails Engine. Simply:
@@ -17,19 +21,19 @@ You can add @gtf-engine@ to your Rails application the same way as you would any
 Add the following to your @Gemfile@:
 
 {% highlight ruby %}
-  gem 'gtfs-engine'
+gem 'gtfs-engine'
 {% endhighlight %}
 
 And then you only have to mount the engine at some path. Add something like the following to your @config/routes.rb@ file:
 
 {% highlight ruby %}
-  mount GtfsEngine::Engine, at: '/gtfs'
+mount GtfsEngine::Engine, at: '/gtfs'
 {% endhighlight %}
 
 Finally, you need to import the DB migration files that define the GTFS resources used by this engine:
 
 {% highlight bash %}
-  rake gtfs_engine:install:migrations
+rake 'gtfs_engine:install:migrations'
 {% endhighlight %}
 
 
@@ -83,16 +87,16 @@ This Rails Engine provides a few @rake@ tasks to help you maintain your GTFS dat
 
 h3. Install Migration
 
-{% highlight sh %}
-rake gtfs_engine:install:migrations
+{% highlight bash %}
+rake 'gtfs_engine:install:migrations'
 {% endhighlight %}
 
 Like most Rails Engines, this engine defines many @ActiveRecord@ classes, representing the various GTFS resources. This rake task will copy these migration files to your Rails app's @db/migrate@ directory.
 
 h3. List the DataSets in the database
 
-{% highlight sh %}
-rake gtfs_engine:sets:list
+{% highlight bash %}
+rake 'gtfs_engine:sets:list'
 {% endhighlight %}
 
 This lists all of the DataSets in the database. The sets are ordered under a heading for each source.
@@ -101,41 +105,41 @@ h4. Example Output
 
 <pre>
 halifax
-        ac43f674eaa0cf1:0: 2014-07-19 00:25:55 -0300 (http://www.halifax.ca/metrotransit/googletransitfeed/google_transit.zip)
-        d57-4f669d05eedfd: 2014-07-19 00:52:32 -0300 (http://localhost/sample-feed.zip)
+    ac43f674eaa0cf1:0: 2014-07-19 00:25:55 -0300 (http://www.halifax.ca/metrotransit/googletransitfeed/google_transit.zip)
+    d57-4f669d05eedfd: 2014-07-19 00:52:32 -0300 (http://localhost/sample-feed.zip)
 
 edmonton
-        52699964659bcf1:0: 2014-07-19 00:31:46 -0300 (http://webdocs.edmonton.ca/transit/etsdatafeed/google_transit.zip)
+    52699964659bcf1:0: 2014-07-19 00:31:46 -0300 (http://webdocs.edmonton.ca/transit/etsdatafeed/google_transit.zip)
 </pre>
 
 h3. Update a DataSource
 
-{% highlight sh %}
-rake gtfs_engine:update[name]
+{% highlight bash %}
+rake 'gtfs_engine:update[name]'
 {% endhighlight %}
 
 Checks the URL for the named Data Source and, if it's new, download it and insert its resources into the DB.
 
 h3. Update every DataSource
 
-{% highlight sh %}
-rake gtfs_engine:update
+{% highlight bash %}
+rake 'gtfs_engine:update'
 {% endhighlight %}
 
 Updates every DataSource configured with @GtfsEngine.sources@.
 
 h3. Delete a DataSource
 
-{% highlight sh %}
-rake gtfs_engine:sets:delete[name,etag]
+{% highlight bash %}
+rake 'gtfs_engine:sets:delete[name,etag]'
 {% endhighlight %}
 
 Deletes the DataSet from the [*name*]d source with the given *etag*.
 
 h3. Count the Resources in a DataSet
 
-{% highlight sh %}
-rake gtfs_engine:sets:count[name,etag]
+{% highlight bash %}
+rake 'gtfs_engine:sets:count[name,etag]'
 {% endhighlight %}
 
 h4. Example Output

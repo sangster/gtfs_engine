@@ -10,25 +10,25 @@ h2. FareRule
 
 bq(subtitle). Rules for applying fare information for a transit organization's routes.
 
-bq. The fare_rules table allows you to specify how fares in fare_attributes.txt apply to an itinerary. Most fare structures use some combination of the following rules:
+The fare_rules table allows you to specify how fares in "fare_attributes.txt":fare_attribute apply to an itinerary. Most fare structures use some combination of the following rules:
 
 * Fare depends on origin or destination stations.
 * Fare depends on which zones the itinerary passes through.
 * Fare depends on which route the itinerary uses.
 
-bq. For examples that demonstrate how to specify a fare structure with fare_rules.txt and fare_attributes.txt, see "FareExamples":http://code.google.com/p/googletransitdatafeed/wiki/FareExamples in the GoogleTransitDataFeed open source project wiki.
+For examples that demonstrate how to specify a fare structure with fare_rules.txt and "fare_attributes.txt":fare_attribute, see "FareExamples":examples in the GoogleTransitDataFeed open source project wiki.
 
 h3. Fields
 
 h4. fare_id %(required; unique)%
 
-bq. The *fare_id* field contains an ID that uniquely identifies a fare class. This value is referenced from the fare_attributes.txt file.
+The *fare_id* field contains an ID that uniquely identifies a fare class. This value is referenced from the "fare_attributes.txt":fare_attribute file.
 
 h4. route_id
 
-bq. The *route_id* field associates the fare ID with a route. Route IDs are referenced from the routes.txt file. If you have several routes with the same fare attributes, create a row in fare_rules.txt for each route.
+The *route_id* field associates the fare ID with a route. Route IDs are referenced from the "routes.txt":route file. If you have several routes with the same fare attributes, create a row in fare_rules.txt for each route.
 
-bq. For example, if fare class "b" is valid on route "TSW" and "TSE", the fare_rules.txt file would contain these rows for the fare class:
+For example, if fare class "b" is valid on route "TSW" and "TSE", the fare_rules.txt file would contain these rows for the fare class:
 
 <pre>
 b,TSW
@@ -37,9 +37,9 @@ b,TSE
 
 h4. origin_id
 
-bq. The *origin_id* field associates the fare ID with an origin zone ID. Zone IDs are referenced from the stops.txt file. If you have several origin IDs with the same fare attributes, create a row in fare_rules.txt for each origin ID.
+The *origin_id* field associates the fare ID with an origin zone ID. Zone IDs are referenced from the "stops.txt":stop file. If you have several origin IDs with the same fare attributes, create a row in fare_rules.txt for each origin ID.
 
-bq. For example, if fare class "b" is valid for all travel originating from either zone "2" or zone "8", the fare_rules.txt file would contain these rows for the fare class:
+For example, if fare class "b" is valid for all travel originating from either zone "2" or zone "8", the fare_rules.txt file would contain these rows for the fare class:
 
 <pre>
 b, , 2
@@ -48,9 +48,9 @@ b, , 8
 
 h4. destination_id
 
-bq. The *destination_id* field associates the fare ID with a destination zone ID. Zone IDs are referenced from the stops.txt file. If you have several destination IDs with the same fare attributes, create a row in fare_rules.txt for each destination ID.
+The *destination_id* field associates the fare ID with a destination zone ID. Zone IDs are referenced from the "stops.txt":stop file. If you have several destination IDs with the same fare attributes, create a row in fare_rules.txt for each destination ID.
 
-bq. For example, you could use the origin_ID and destination_ID fields together to specify that fare class "b" is valid for travel between zones 3 and 4, and for travel between zones 3 and 5, the fare_rules.txt file would contain these rows for the fare class:
+For example, you could use the origin_ID and destination_ID fields together to specify that fare class "b" is valid for travel between zones 3 and 4, and for travel between zones 3 and 5, the fare_rules.txt file would contain these rows for the fare class:
 
 <pre>
 b, , 3,4
@@ -59,9 +59,9 @@ b, , 3,5
 
 h4. contains_id
 
-bq. The *contains_id* field associates the fare ID with a zone ID, referenced from the stops.txt file. The fare ID is then associated with itineraries that pass through every contains_id zone.
+The *contains_id* field associates the fare ID with a zone ID, referenced from the "stops.txt":stop file. The fare ID is then associated with itineraries that pass through every contains_id zone.
 
-bq. For example, if fare class "c" is associated with all travel on the GRT route that passes through zones 5, 6, and 7 the fare_rules.txt would contain these rows:
+For example, if fare class "c" is associated with all travel on the GRT route that passes through zones 5, 6, and 7 the fare_rules.txt would contain these rows:
 
 <pre>
 c,GRT,,,5
@@ -69,5 +69,9 @@ c,GRT,,,6
 c,GRT,,,7
 </pre>
 
-bq. Because all contains_id zones must be matched for the fare to apply, an itinerary that passes through zones 5 and 6 but not zone 7 would not have fare class "c". For more detail, see "FareExamples":http://code.google.com/p/googletransitdatafeed/wiki/FareExamples in the GoogleTransitDataFeed project wiki.
+Because all contains_id zones must be matched for the fare to apply, an itinerary that passes through zones 5 and 6 but not zone 7 would not have fare class "c". For more detail, see "FareExamples":examples in the GoogleTransitDataFeed project wiki.
 
+[fare_attribute]{{ site.url }}/resources/fare_attribute
+[route]{{ site.url }}/resources/route
+[stop]{{ site.url }}/resources/stop
+[examples]http://code.google.com/p/googletransitdatafeed/wiki/FareExamples
