@@ -20,9 +20,7 @@ module GtfsEngine
 
         json.status 'success'
         json.data do
-          json.set! controller_name do
-            json.array!(records) {|record| json.extract! record, *fields }
-          end
+          json.array!(records) {|record| json.extract! record, *fields }
         end
       end
     end
@@ -32,9 +30,7 @@ module GtfsEngine
         json.ignore_nil! true
         json.status 'success'
         json.data do
-          json.set! controller_name.singularize do
-            json.extract! record, *fields
-          end
+          json.extract! record, *fields
         end
       end
     end
