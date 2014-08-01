@@ -9,6 +9,32 @@ h2. Agency %(required)%
 
 bq(subtitle). One or more transit agencies that provide the data in this feed.
 
+It's important to remember that although the @agency_id@ field is marked as "required", it may be blank or missing in the event that there is only one entry.
+
+h3. Routes
+
+- Get All Agencies :=
+bc(get). GET /agencies
+=:
+- Get a Single Agency :=
+bc(get). GET /agencies/:agency_id
+=:
+
+h4. Example Response
+
+{% highlight json %}
+{
+  "status": "success",
+  "data": {
+    "agency_id": "ag01",
+    "agency_name": "Example Transit",
+    "agency_url": "http://www.example.com/transit.html",
+    "agency_timezone": "America/Halifax",
+    "agency_lang": "en"
+  }
+}
+{% endhighlight %}
+
 h3. Fields
 
 h4. agency_id %(required; unique)%

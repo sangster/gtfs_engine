@@ -9,6 +9,28 @@ h2. Stop %(required)%
 
 bq(subtitle). Individual locations where vehicles pick up or drop off passengers.
 
+h3. Routes
+
+- Get All Stops :=
+bc(get). GET /stops
+=:
+
+h4. Example Response
+
+{% highlight json %}
+{
+  "status": "success",
+  "data": {
+    "stop_id": "1234",
+    "stop_name": "Pleasant St, after Elm St",
+    "stop_lat": 43.654321,
+    "stop_lon": -48.543210,
+    "location_type": 0
+  }
+}
+{% endhighlight %}
+
+
 h3. Fields
 
 h4. stop_id %(required; unique)%
