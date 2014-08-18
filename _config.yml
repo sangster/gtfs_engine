@@ -8,4 +8,4 @@ defaults:
 redcloth:
   hard_breaks: true
 
-url: "/gtfs-engine"
+url: "/gtfs_engine"
