@@ -1,11 +1,11 @@
-h1. gtfs-engine
+h1. gtfs_engine
 
-@gtfs-engine@ is a "Rails Engine":http://guides.rubyonrails.org/engines.html which will add GTFS(General Transit Feed Specification) support to your application. It provides both the resources and controller actions necessary to provide a RESTful interface to one or more GTFS data sets.
+@gtfs_engine@ is a "Rails Engine":http://guides.rubyonrails.org/engines.html which will add GTFS(General Transit Feed Specification) support to your application. It provides both the resources and controller actions necessary to provide a RESTful interface to one or more GTFS data sets.
 
-See "*sangster.github.io/gtfs-engine*"://sangster.github.io/gtfs-engine more more information on how to use this engine.
+See "*sangster.github.io/gtfs_engine*"://sangster.github.io/gtfs_engine more more information on how to use this engine.
 
 h2. Sub-Components
 
-This Rails Engine relies on the "gtfs-reader"://github.com/sangster/gtfs-reader rubygem to process the actual ZIP files in which GTFS data sets are provided.
+This Rails Engine relies on the "gtfs_reader"://github.com/sangster/gtfs_reader rubygem to process the actual ZIP files in which GTFS data sets are provided.
 
 
