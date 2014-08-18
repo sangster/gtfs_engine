@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Jon Sangster"]
-  s.date = "2014-07-31"
-  s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
+  s.date = "2014-08-18"
+  s.description = "Renamed to gtfs_engine. See https://rubygems.org/gems/gtfs_engine"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
   s.extra_rdoc_files = [
@@ -92,6 +92,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/sangster/gtfs-engine"
   s.licenses = ["GPL 3"]
+  s.post_install_message = "!    The 'gtfs-engine' gem has been deprecated and has been replaced by\n!        'gtfs_engine' to follow rubygem.org's naming convention.\n!    See: https://rubygems.org/gems/gtfs_engine\n!    And: https://github.com/sangster/gtfs_engine\n!    And: http://guides.rubygems.org/name-your-gem\n"
   s.rubygems_version = "2.2.2"
   s.summary = "Read General Transit Feed Specification zip files"
 
