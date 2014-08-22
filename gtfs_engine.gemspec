@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Jon Sangster"]
   s.date = "2014-08-22"
-  s.description = "A Rails Engine to provide a basic RESTful interface for GTFS feeds. GTFS Spec: https://developers.google.com/transit/gtfs"
+  s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
   s.extra_rdoc_files = [
