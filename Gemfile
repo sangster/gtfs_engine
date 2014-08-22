@@ -5,6 +5,9 @@ gem 'rails', '~> 4.1'
 gem 'gtfs-reader', '~> 0.2'
 gem 'activerecord-import', '~> 0.5'
 
+gem 'jbuilder', '~> 2.1'
+gem 'jsend_wrapper-rails', '~> 0.3'
+
 group :development, :test do
   gem 'pry-rails', '~> 0.3'
 end

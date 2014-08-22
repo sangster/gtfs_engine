@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Jon Sangster"]
-  s.date = "2014-08-18"
+  s.date = "2014-08-22"
   s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
@@ -51,15 +51,15 @@ Gem::Specification.new do |s|
     "app/models/gtfs_engine/stop_time.rb",
     "app/models/gtfs_engine/transfer.rb",
     "app/models/gtfs_engine/trip.rb",
-    "app/views/gtfs_engine/calendars/dates.json.jbuilder",
-    "app/views/gtfs_engine/data_sets/index.json.jbuilder",
-    "app/views/gtfs_engine/data_sets/show.json.jbuilder",
-    "app/views/gtfs_engine/gtfs/index.json.jbuilder",
-    "app/views/gtfs_engine/gtfs/show.json.jbuilder",
-    "app/views/gtfs_engine/transfers/from.json.jbuilder",
-    "app/views/gtfs_engine/transfers/from_to.json.jbuilder",
-    "app/views/gtfs_engine/transfers/to.json.jbuilder",
-    "app/views/gtfs_engine/trips/block.json.jbuilder",
+    "app/views/gtfs_engine/calendars/dates.json.jsend",
+    "app/views/gtfs_engine/data_sets/index.json.jsend",
+    "app/views/gtfs_engine/data_sets/show.json.jsend",
+    "app/views/gtfs_engine/gtfs/index.json.jsend",
+    "app/views/gtfs_engine/gtfs/show.json.jsend",
+    "app/views/gtfs_engine/transfers/from.json.jsend",
+    "app/views/gtfs_engine/transfers/from_to.json.jsend",
+    "app/views/gtfs_engine/transfers/to.json.jsend",
+    "app/views/gtfs_engine/trips/block.json.jsend",
     "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
@@ -102,6 +102,8 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, ["~> 4.1"])
       s.add_runtime_dependency(%q<gtfs-reader>, ["~> 0.2"])
       s.add_runtime_dependency(%q<activerecord-import>, ["~> 0.5"])
+      s.add_runtime_dependency(%q<jbuilder>, ["~> 2.1"])
+      s.add_runtime_dependency(%q<jsend_wrapper-rails>, ["~> 0.3"])
       s.add_development_dependency(%q<pry-rails>, ["~> 0.3"])
       s.add_development_dependency(%q<yard>, ["~> 0.8"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
@@ -111,6 +113,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rails>, ["~> 4.1"])
       s.add_dependency(%q<gtfs-reader>, ["~> 0.2"])
       s.add_dependency(%q<activerecord-import>, ["~> 0.5"])
+      s.add_dependency(%q<jbuilder>, ["~> 2.1"])
+      s.add_dependency(%q<jsend_wrapper-rails>, ["~> 0.3"])
       s.add_dependency(%q<pry-rails>, ["~> 0.3"])
       s.add_dependency(%q<yard>, ["~> 0.8"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -121,6 +125,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rails>, ["~> 4.1"])
     s.add_dependency(%q<gtfs-reader>, ["~> 0.2"])
     s.add_dependency(%q<activerecord-import>, ["~> 0.5"])
+    s.add_dependency(%q<jbuilder>, ["~> 2.1"])
+    s.add_dependency(%q<jsend_wrapper-rails>, ["~> 0.3"])
     s.add_dependency(%q<pry-rails>, ["~> 0.3"])
     s.add_dependency(%q<yard>, ["~> 0.8"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])

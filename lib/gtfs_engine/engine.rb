@@ -12,6 +12,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
+
+# The following line is required for jsend_wrapper/rails to be available when
+# mounted in another rails application.
+require 'jsend_wrapper/rails'
+
 module GtfsEngine
   class Engine < ::Rails::Engine
     isolate_namespace GtfsEngine
