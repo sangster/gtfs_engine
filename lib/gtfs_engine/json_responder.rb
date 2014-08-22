@@ -24,8 +24,10 @@ class GtfsEngine::JsonResponder < ActionController::Responder
   protected
 
   def display_errors
-    status_code = options[:status] || :unprocessable_entity
-    data = { status: 'error', data: resource_errors[:errors] }
-    controller.render format => data, status: status_code
+    options[:status] ||= :unprocessable_entity
+
+    controller.render status: options[:status], jsend: {
+        error: 'could not process request', data: resource_errors[:errors]
+    }
   end
 end

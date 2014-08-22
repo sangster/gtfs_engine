@@ -18,6 +18,7 @@
 module GtfsEngine::Concerns::Controllers::Gtfs
   extend ActiveSupport::Concern
 
+
   included do
     around_filter :gtfs_cache, only: [:index, :show]
 
@@ -35,11 +36,13 @@ module GtfsEngine::Concerns::Controllers::Gtfs
       @gtfs_id or controller_name.singularize.foreign_key
     end
 
+
     def filters(*attrs)
       attrs.flatten!
       @filters = attrs unless attrs.empty?
       @filters ||= []
     end
+
 
     #@return [Class] the +ActiveRecord::Base+ class associated with this
     #  controller
@@ -58,11 +61,13 @@ module GtfsEngine::Concerns::Controllers::Gtfs
     respond_with @records, template: 'gtfs_engine/gtfs/index'
   end
 
+
   # GET /:id for a specific element of the given GTFS type
   def show
     @record = record
     respond_with @record, template: 'gtfs_engine/gtfs/show'
   end
+
 
   #@return <ActionController::Parameters> the map of fields to filter;
   # derived from the query string
@@ -73,8 +78,7 @@ module GtfsEngine::Concerns::Controllers::Gtfs
         query[q] = true if v.blank? # blank value indicates boolean filter
         filters.include?(q.to_sym) ? nil : q
       end.compact
-require 'pry'
-      binding.pry
+
       unless unknown.empty?
         raise GtfsEngine::UnknownFilters.new(unknown), 'unknown filter'
       end
@@ -83,12 +87,15 @@ require 'pry'
     end
   end
 
+
   protected
+
 
   #@return [ActiveRecord::Relation] all the records in this GTFS association
   def collection
     data.send controller_name
   end
+
 
   #@return [ActiveRecord::Relation] all the records in this GTFS
   #  association that match the filter specified in the query string
@@ -96,25 +103,31 @@ require 'pry'
     collection.where filter
   end
 
+
   #@return [ActiveRecord::Base] the record identified by +params[:id]+ in this
   #  GTFS association
   def record
     collection.find_by! gtfs_id => params[:id]
   end
 
+
   def gtfs_id
     self.class.gtfs_id
   end
+
 
   def filters
     self.class.filters
   end
 
+
   def query
     request.query_parameters
   end
 
+
   private
+
 
   def format
     request.format.to_sym
@@ -131,11 +144,14 @@ require 'pry'
     yield if stale? options
   end
 
+
   #@param ex [GtfsEngine::UnknownFilter]
   def unknown_filter(ex)
-    json = {status: 'fail', data: ex.to_hash}
-    render status: :bad_request, format => json
+    render status: :bad_request, jsend: {
+      error: 'unknown filter', data: ex.to_h
+    }
   end
+
 
   def statement_invalid(ex)
     inner = ex.original_exception
@@ -143,16 +159,19 @@ require 'pry'
     when PG::InvalidDatetimeFormat, PG::DatetimeFieldOverflow
       lines = inner.message.split "\n"
       /.*"([^"]+)"[^"]+/ === lines[1][0..lines[2].size] and begin
-        json = {status: 'fail', data: {$1 => 'invalid date'}}
-        render status: :bad_request, format => json
+        render status: :bad_request, jsend: {
+          message: 'invalid date', data: {$1 => 'invalid date'}
+        }
       end
     else
       raise ex
     end
   end
 
+
   def record_not_found(ex)
-    json = {status: 'fail', data: {gtfs_id => params[:id]}}
-    render status: :not_found, format => json
+    render status: :not_found, jsend: {
+      error: 'record not found', data: {gtfs_id => params[:id]}
+    }
   end
 end
