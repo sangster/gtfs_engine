@@ -8,7 +8,7 @@ h2. Introduction
 
 This "GTFS(General Transit Feed Specification) Engine" is a "Rails Engine":rails-engine which will allow your Rails application to process GTFS feeds and model their associations through __ActiveRecord__ objects.
 
-This project is currently a sub-component of the "KnowTime Server":knowtime-git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs-reader-git, to actually process the __.zip__ files in which GTFS feeds are contained.
+This project is currently a sub-component of the "KnowTime Server":knowtime_git project, but hopefully can of use to others projects. This project also depends on another GitHub project, "GTFS Reader":gtfs_reader_git, to actually process the __.zip__ files in which GTFS feeds are contained.
 
 h2. Example
 
@@ -21,7 +21,7 @@ You can add @gtf-engine@ to your Rails application the same way as you would any
 Add the following to your @Gemfile@:
 
 {% highlight ruby %}
-gem 'gtfs-engine'
+gem 'gtfs_engine'
 {% endhighlight %}
 
 And then you only have to mount the engine at some path. Add something like the following to your @config/routes.rb@ file:
@@ -165,8 +165,8 @@ Model count for halifax data set with etag ac43f674eaa0cf1:0
 
 
 [rails-engine]{{ site.data.urls.rails_engine }}
-[knowtime-git]{{ site.data.urls.knowtime_git }}
-[gtfs-reader-git]{{ site.data.urls.gtfs_reader_git }}
+[knowtime_git]{{ site.data.urls.knowtime_git }}
+[gtfs_reader_git]{{ site.data.urls.gtfs_reader_git }}
 [wiki-json]{{ site.data.urls.wiki_json }}
 [jsend]{{ site.data.urls.jsend }}
 
