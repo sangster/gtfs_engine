@@ -15,6 +15,7 @@
 
 # The following line is required for jsend_wrapper/rails to be available when
 # mounted in another rails application.
+require 'gtfs_engine/middleware/json_parse_errors'
 require 'jsend_wrapper/rails'
 
 module GtfsEngine
@@ -28,6 +29,11 @@ module GtfsEngine
       stylesheets         false
       javascripts         false
       fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
+
+    initializer 'gtfs_engine.middleware' do |app|
+      app.config.middleware.insert_before ActionDispatch::ParamsParser,
+        GtfsEngine::Middleware::JsonParseErrors
     end
   end
 end

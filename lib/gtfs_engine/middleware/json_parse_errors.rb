@@ -15,6 +15,7 @@
 
 # The following line is required for jsend_wrapper/rails to be available when
 # mounted in another rails application.
+require 'gtfs_engine/middleware/base'
 require 'jsend_wrapper/renderers/error_renderer'
 
 module GtfsEngine
@@ -25,7 +26,7 @@ module GtfsEngine
     #
     # Rails has a built-in JSON response when such an error occurs, but this
     # middleware will return an error message in JSend format.
-    class HandleRequestJsonParseErrors < Base
+    class JsonParseErrors < Base
       ERROR_CODE = 1001
       MESSAGE = 'The body of your request is not valid JSON'
 
