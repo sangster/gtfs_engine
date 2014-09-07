@@ -15,25 +15,29 @@
 
 # The following line is required for jsend_wrapper/rails to be available when
 # mounted in another rails application.
-require 'gtfs_engine/middleware/json_parse_errors'
-require 'jsend_wrapper/rails'
-
 module GtfsEngine
-  class Engine < ::Rails::Engine
-    isolate_namespace GtfsEngine
-    engine_name 'gtfs_engine'
+  module Middleware
+    class Base
+      attr_reader :app
 
-    config.generators.instance_exec do
-      template_engine     :jbuilder
-      test_framework      :rspec, fixture: false
-      stylesheets         false
-      javascripts         false
-      fixture_replacement :factory_girl, dir: 'spec/factories'
-    end
+      HEADERS = { 'Content-Type' => 'application/json' }
 
-    initializer 'gtfs_engine.middleware' do |app|
-      app.config.middleware.insert_before ActionDispatch::ParamsParser,
-        GtfsEngine::Middleware::JsonParseErrors
+      def initialize(app)
+        @app = app
+      end
+
+    protected
+
+      def accepts_json?(env)
+        request = ActionDispatch::Request.new env
+        !!collector.negotiate_format(request)
+      end
+
+    private
+
+      def collector
+        @collector ||= ActionController::MimeResponds::Collector.new ['json']
+      end
     end
   end
 end
