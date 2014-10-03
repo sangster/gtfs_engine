@@ -15,12 +15,17 @@
 module GtfsEngine
   class Trip < ActiveRecord::Base
     belongs_to :data_set, inverse_of: :trips
-    belongs_to :route,    inverse_of: :trips, primary_key: :route_id, foreign_key: :route_id
-    belongs_to :calendar, inverse_of: :trips, primary_key: :service_id, foreign_key: :service_id
+    belongs_to :route,    inverse_of: :trips,
+               foreign_key: :route_id, primary_key: :route_id
+    belongs_to :calendar, inverse_of: :trips,
+               foreign_key: :service_id, primary_key: :service_id
 
-    has_many :frequencies, inverse_of: :trip, primary_key: :trip_id, foreign_key: :trip_id
-    has_many :shapes,      inverse_of: :trip, primary_key: :shape_id, foreign_key: :shape_id
-    has_many :stop_times,  inverse_of: :trip, primary_key: :trip_id, foreign_key: :trip_id
+    has_many :frequencies, inverse_of: :trip,
+             foreign_key: :trip_id, primary_key: :trip_id
+    has_many :shapes,      inverse_of: :trip,
+             foreign_key: :shape_id, primary_key: :shape_id
+    has_many :stop_times,  inverse_of: :trip,
+             foreign_key: :trip_id, primary_key: :trip_id
 
     has_many :stops, through: :stop_times
   end
