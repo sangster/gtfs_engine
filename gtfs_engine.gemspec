@@ -77,7 +77,6 @@ Gem::Specification.new do |s|
     "db/migrate/20140406072309_create_gtfs_engine_transfers.rb",
     "db/migrate/20140406073548_create_gtfs_engine_feed_infos.rb",
     "lib/ext.rb",
-    "lib/ext/active_record/associations/association.rb",
     "lib/gtfs_engine.rb",
     "lib/gtfs_engine/concerns.rb",
     "lib/gtfs_engine/concerns/controllers.rb",
