@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 
 gem 'rails', '~> 4.1'
-gem 'gtfs-reader', '~> 0.2'
+gem 'gtfs_reader', '~> 1.0'
 gem 'activerecord-import', '~> 0.5'
 
 gem 'jbuilder', '~> 2.1'
