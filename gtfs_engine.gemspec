@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Jon Sangster"]
-  s.date = "2014-09-07"
-  s.description = "Reads and parses zip files conforming to Google's GTFS spec. GTFS Spec: https://developers.google.com/transit/gtfs"
+  s.date = "2014-10-05"
+  s.description = "A Rails Engine to provide a basic RESTful interface for GTFS feeds. GTFS Spec: https://developers.google.com/transit/gtfs"
   s.email = "jon@ertt.ca"
   s.executables = ["rails"]
   s.extra_rdoc_files = [
@@ -60,7 +60,6 @@ Gem::Specification.new do |s|
     "app/views/gtfs_engine/transfers/from_to.json.jsend",
     "app/views/gtfs_engine/transfers/to.json.jsend",
     "app/views/gtfs_engine/trips/block.json.jsend",
-    "config/initializers/extensions_loader.rb",
     "config/routes.rb",
     "db/migrate/20140320045108_create_gtfs_engine_data_sets.rb",
     "db/migrate/20140320045232_create_gtfs_engine_calendars.rb",
@@ -76,7 +75,6 @@ Gem::Specification.new do |s|
     "db/migrate/20140406071922_create_gtfs_engine_frequencies.rb",
     "db/migrate/20140406072309_create_gtfs_engine_transfers.rb",
     "db/migrate/20140406073548_create_gtfs_engine_feed_infos.rb",
-    "lib/ext.rb",
     "lib/gtfs_engine.rb",
     "lib/gtfs_engine/concerns.rb",
     "lib/gtfs_engine/concerns/controllers.rb",
