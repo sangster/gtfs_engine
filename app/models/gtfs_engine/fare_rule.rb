@@ -15,8 +15,10 @@
 module GtfsEngine
   class FareRule < ActiveRecord::Base
     belongs_to :data_set, inverse_of: :trips
-    belongs_to :fare_attribute, inverse_of: :fare_rules,   shared_key: :fare_id
-    belongs_to :route,          inverse_of: :fare_rules,   shared_key: :route_id
+    belongs_to :fare_attribute, inverse_of: :fare_rules,
+               foreign_key: :fare_id, primary_key: :fare_id
+    belongs_to :route,          inverse_of: :fare_rules,
+               foreign_key: :route_id, primary_key: :route_id
 
     with_options class_name: 'Stop', primary_key: :zone_id do |rule|
       rule.belongs_to :origin,      inverse_of: :origin_rules,

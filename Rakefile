@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.license = 'GPL 3'
   gem.summary = 'Read General Transit Feed Specification zip files'
   gem.description = <<-EOF.strip.gsub /\s+/, ' '
-    Reads and parses zip files conforming to Google's GTFS spec.
+    A Rails Engine to provide a basic RESTful interface for GTFS feeds.
 
     GTFS Spec: https://developers.google.com/transit/gtfs
   EOF
