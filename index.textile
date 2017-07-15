@@ -54,7 +54,7 @@ GtfsEngine.sources do |source|
 end
 {% endhighlight %}
 
-That being said, the source data is only used when updating the data sources. As this is most often done via @rake@ takes (see below), you may want to restrict your configuration to that.
+That being said, the source data is only used when updating the data sources. As this is most often done via @rake@ tasks (see below), you may want to restrict your configuration to that.
 
 
 h2. Resources
