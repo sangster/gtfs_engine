@@ -12,6 +12,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
+require 'action_controller/responder'
+
 class GtfsEngine::JsonResponder < ActionController::Responder
   def to_json
     if has_errors?

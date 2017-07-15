@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'rails', ['>= 4.1', '< 6.0']
+gem 'responders', '~> 2.4'
 gem 'gtfs_reader', '~> 1.2'
 gem 'activerecord-import', '~> 0.19'
 
