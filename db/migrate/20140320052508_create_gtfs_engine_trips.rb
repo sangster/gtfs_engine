@@ -1,4 +1,4 @@
-class CreateGtfsEngineTrips < ActiveRecord::Migration
+class CreateGtfsEngineTrips < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_trips
 
   def change

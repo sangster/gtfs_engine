@@ -1,4 +1,4 @@
-class CreateGtfsEngineFareAttributes < ActiveRecord::Migration
+class CreateGtfsEngineFareAttributes < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_fare_attributes
 
   def change

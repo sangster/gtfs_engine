@@ -1,4 +1,4 @@
-class CreateGtfsEngineFeedInfos < ActiveRecord::Migration
+class CreateGtfsEngineFeedInfos < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_feed_infos
 
   def change

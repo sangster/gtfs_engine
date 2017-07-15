@@ -1,4 +1,4 @@
-class CreateGtfsEngineFrequencies < ActiveRecord::Migration
+class CreateGtfsEngineFrequencies < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_frequencies
 
   def change

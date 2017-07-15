@@ -1,4 +1,4 @@
-class CreateGtfsEngineStopTimes < ActiveRecord::Migration
+class CreateGtfsEngineStopTimes < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_stop_times
 
   def change

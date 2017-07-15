@@ -1,4 +1,4 @@
-class CreateGtfsEngineRoutes < ActiveRecord::Migration
+class CreateGtfsEngineRoutes < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_routes
 
   def change
