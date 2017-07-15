@@ -32,7 +32,7 @@ module GtfsEngine
     end
 
     initializer 'gtfs_engine.middleware' do |app|
-      app.config.middleware.insert_before ActionDispatch::ParamsParser,
+      app.config.middleware.insert_before ActionDispatch::Cookies,
         GtfsEngine::Middleware::JsonParseErrors
     end
   end
