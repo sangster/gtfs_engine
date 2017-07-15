@@ -12,7 +12,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = 'gtfs_engine'
   gem.version = GtfsEngine::Version.to_s
   gem.homepage = 'http://github.com/sangster/gtfs_engine'
-  gem.license = 'GPL 3'
+  gem.license = 'GPL-3.0'
   gem.summary = 'Read General Transit Feed Specification zip files'
   gem.description = <<-EOF.strip.gsub /\s+/, ' '
     A Rails Engine to provide a basic RESTful interface for GTFS feeds.
