@@ -2,24 +2,28 @@
 title: DataSet
 layout: default
 toc: removeTopLevel
----
+----
 
-h2. DataSet
+# DataSet
 
-The __DataSet__ model is not a GTFS model, but describes a single set of such models, all of which were obtained from a single zip file.
+The **DataSet** model is not a GTFS model, but describes a single set of such
+models, all of which were obtained from a single zip file.
 
+## Routes
 
-h3. Routes
+### Get All DataSets
 
-h4. Get All DataSets
+```
+GET /
+```
 
-bc(get). GET /
+Returns every `DataSet` in the database. The returned data is a JSON
+object where each key is the `name` of a data source, and the value is
+the list of DataSets from that source.
 
-Returns every @DataSet@ in the database. The returned data is a JSON object where each key is the @name@ of a data source, and the value is the list of DataSets from that source.
+#### Example Response
 
-h5. Example Response
-
-{% highlight json %}
+``` json
 {
   "status": "success",
   "data": {
@@ -53,19 +57,23 @@ h5. Example Response
     ],
   }
 }
-{% endhighlight %}
+```
 
-h4(#single). Get A Single DataSet
+### Get A Single DataSet {#single}
 
-bc(get). GET /:id
+```
+GET /:id
+```
 
-Returns the @DataSet@ with the given @:id@.
+Returns the `DataSet` with the given `:id`.
 
-The returned resource also supplies an additional field: *details*. This field lists a count of how many resources of each type are available from the DataSet, and the list of filters that can be used to refine a request.
+The returned resource also supplies an additional field: **details**. This field
+lists a count of how many resources of each type are available from the DataSet,
+and the list of filters that can be used to refine a request.
 
-h5. Example Response
+#### Example Response
 
-{% highlight json %}
+``` json
 {
   "status": "success",
   "data": {
@@ -213,41 +221,48 @@ h5. Example Response
     }
   }
 }
-{% endhighlight %}
+```
 
+### Get the Newest DataSet for a Source
 
-h4. Get the Newest DataSet for a Source
+```
+GET /:name
+```
 
-bc(get). GET /:name
+Typically, an application will only be interested in the most current data. This
+action will return the newest DataSet with the given `:name`.
 
-Typically, an application will only be interested in the most current data. This action will return the newest DataSet with the given @:name@.
+See [A Single DataSet](#single)
 
-See "A Single DataSet":#single
+## Fields
 
+### id []{.unique .required;}
 
-h3. Fields
+The **id** field contains an ID that uniquely identifies a DataSet. The **id**
+is dataset unique.
 
-h4. id %(required; unique)%
+### name `(required)`
 
-The *id* field contains an ID that uniquely identifies a DataSet. The *id* is dataset unique.
+The **name** of the source which this DataSet came from. This name is a very
+short identifier for the data set. It will server as the key for list of data
+sets returned for this source.
 
-h4. name %(required)%
+### title `(required)`
 
-The *name* of the source which this DataSet came from. This name is a very short identifier for the data set. It will server as the key for list of data sets returned for this source.
+A more verbose version of **name** which describes the data set. This text is
+more free-form, but still be a proper noun phrase. For instance, if the **name**
+is `"halifax"`, the **title** could be `"Halifax Metro Transit"`.
 
-h4. title %(required)%
+### url `(required)`
 
-A more verbose version of *name* which describes the data set. This text is more free-form, but still be a proper noun phrase. For instance, if the *name* is @"halifax"@, the *title* could be @"Halifax Metro Transit"@.
+The **url** where the data came from.
 
-h4. url %(required)%
+### etag `(required)`
 
-The *url* where the data came from.
+The HTTP header, **etag**, is used to determine when the DataSet at the **url**
+has been updated. During an update, if the **etag** at the remote location has
+not changed, the update will be skipped.
 
-h4. etag %(required)%
+### created_at `(required)`
 
-The HTTP header, *etag*, is used to determine when the DataSet at the *url* has been updated. During an update, if the *etag* at the remote location has not changed, the update will be skipped.
-
-h4. created_at %(required)%
-
-The time this DataSet was downloaded from the *url*.
-
+The time this DataSet was downloaded from the **url**.

@@ -1,7 +1,6 @@
 ---
 gtfs_ref: https://developers.google.com/transit/gtfs/reference
 rails_engine: http://guides.rubyonrails.org/engines.html
-knowtime_git: //github.com/sangster/knowtime-server
 gtfs_reader_git: //github.com/sangster/gtfs_reader
 gtfs_reader_pages: //sangster.github.io/gtfs_engine
 wiki_json: //en.wikipedia.org/wiki/JSON
@@ -10,4 +9,3 @@ w3_uri: http://www.w3.org/Addressing/URL/4_URI_Recommentations.html
 country_codes: http://www.loc.gov/standards/iso639-2/php/code_list.php
 time_zones: http://en.wikipedia.org/wiki/List_of_tz_zones
 ...
-
