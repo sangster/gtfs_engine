@@ -20,7 +20,7 @@ module GtfsEngine::Concerns::Controllers::Gtfs
 
 
   included do
-    around_filter :gtfs_cache, only: [:index, :show]
+    around_action :gtfs_cache, only: [:index, :show]
 
     rescue_from GtfsEngine::UnknownFilters,     with: :unknown_filter
     rescue_from ActiveRecord::StatementInvalid, with: :statement_invalid
