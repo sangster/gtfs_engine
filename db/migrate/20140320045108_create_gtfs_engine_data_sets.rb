@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGtfsEngineDataSets < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_data_sets
 

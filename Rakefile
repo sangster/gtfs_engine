@@ -1,20 +1,21 @@
-# encoding: utf-8
+# frozen_string_literal: true
+
 begin
   require 'bundler/setup'
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-require 'jeweler'
+require 'juwelier'
 require File.dirname(__FILE__) + '/lib/gtfs_engine/version'
 
-Jeweler::Tasks.new do |gem|
+Juwelier::Tasks.new do |gem|
   gem.name = 'gtfs_engine'
   gem.version = GtfsEngine::Version.to_s
   gem.homepage = 'http://github.com/sangster/gtfs_engine'
   gem.license = 'GPL-3.0'
   gem.summary = 'Read General Transit Feed Specification zip files'
-  gem.description = <<-EOF.strip.gsub /\s+/, ' '
+  gem.description = <<-EOF.strip.gsub(/\s+/, ' ')
     A Rails Engine to provide a basic RESTful interface for GTFS feeds.
 
     GTFS Spec: https://developers.google.com/transit/gtfs
@@ -25,7 +26,7 @@ Jeweler::Tasks.new do |gem|
   gem.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
 end
 
-Jeweler::RubygemsDotOrgTasks.new
+Juwelier::RubygemsDotOrgTasks.new
 
 task bump: ['bump:patch']
 namespace :bump do

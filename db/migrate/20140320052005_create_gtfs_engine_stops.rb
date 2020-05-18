@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class CreateGtfsEngineStops < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_stops
 
   def change
     create_table TABLE do |t|
-      t.string  :stop_id,             null: false
+      t.string  :stop_id, null: false
       t.string  :stop_code
-      t.string  :stop_name,           null: false
+      t.string  :stop_name, null: false
       t.string  :stop_desc
       t.float   :stop_lat,            null: false
       t.float   :stop_lon,            null: false

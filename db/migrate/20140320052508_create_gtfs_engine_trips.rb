@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGtfsEngineTrips < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_trips
 
@@ -9,7 +11,7 @@ class CreateGtfsEngineTrips < ActiveRecord::Migration[4.2]
       t.string  :trip_short_name
       t.integer :direction_id
       t.string  :block_id
-      t.string  :route_id,              null: false
+      t.string  :route_id, null: false
       t.string  :shape_id
       t.integer :wheelchair_accessible
       t.integer :bikes_allowed

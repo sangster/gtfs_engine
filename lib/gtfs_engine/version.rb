@@ -1,17 +1,5 @@
-# This file is part of the KNOWtime server.
-#
-# The KNOWtime server is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option) any
-# later version.
-#
-# The KNOWtime server is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-# details.
-#
-# You should have received a copy of the GNU General Public License
-# along with the KNOWtime server.  If not, see <http://www.gnu.org/licenses/>.
+# frozen_string_literal: true
+
 module GtfsEngine
   module Version
     # The following four lines are generated, so don't mess with them.
@@ -21,17 +9,19 @@ module GtfsEngine
     BUILD = nil
 
     def self.to_s
-      [MAJOR, MINOR, PATCH, BUILD].compact.join '.'
+      [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
     end
 
     # A helper class which bumps the version number stored in this file
     class Bumper
-      PARTS = %i[major minor patch]
-      PATTERN = %r[(\s+)MAJOR = \d+\s+MINOR = \d+\s+PATCH = \d+\s+BUILD = .+]
+      PARTS = %i[major minor patch].freeze
+      PATTERN = /(\s+)MAJOR = \d+\s+MINOR = \d+\s+PATCH = \d+\s+BUILD = .+/.freeze
 
-      def initialize(filename=__FILE__, part)
-        raise "#{part} not one of #{PARTS}" unless PARTS.include? part
-        @filename, @part = filename, part
+      def initialize(filename = __FILE__, part)
+        raise "#{part} not one of #{PARTS}" unless PARTS.include?(part)
+
+        @filename = filename
+        @part = part
       end
 
       # Increase the version number and write it to this file
@@ -40,18 +30,18 @@ module GtfsEngine
         text = '\1' + ["MAJOR = #{parts[:major]}",
                        "MINOR = #{parts[:minor]}",
                        "PATCH = #{parts[:patch]}",
-                       "BUILD = #{parts[:build] || 'nil'}"].join( '\1' )
+                       "BUILD = #{parts[:build] || 'nil'}"].join('\1')
 
-        out_data = File.read( @filename ).gsub PATTERN, text
-        #puts out_data
-        File.open( @filename, 'w' ) { |out| out << out_data }
-        puts "Bumped version to #{to_s}"
+        out_data = File.read(@filename).gsub(PATTERN, text)
+        # puts out_data
+        File.open(@filename, 'w') { |out| out << out_data }
+        puts "Bumped version to #{self}"
       end
 
-      #@return [String] What the new version string will be.
+      # @return [String] What the new version string will be.
       def to_s
         p = new_version
-        [p[:major], p[:minor], p[:patch], p[:build]].compact.join ?.
+        [p[:major], p[:minor], p[:patch], p[:build]].compact.join('.')
       end
 
       private
@@ -60,23 +50,26 @@ module GtfsEngine
         @vers ||= { major: MAJOR,
                     minor: MINOR,
                     patch: PATCH,
-                    build: BUILD }.merge new_parts
+                    build: BUILD }.merge(new_parts)
       end
 
       def new_parts
         case @part
-        when :major then {
+        when :major
+          {
             major: MAJOR + 1,
             minor: 0,
             patch: 0
-        }
-        when :minor then {
+          }
+        when :minor
+          {
             minor: MINOR + 1,
             patch: 0
-        }
-        else {
+          }
+        else
+          {
             patch: PATCH + 1
-        }
+          }
         end
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGtfsEngineCalendars < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_calendars
 

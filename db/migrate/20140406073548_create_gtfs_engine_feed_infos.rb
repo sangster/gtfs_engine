@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGtfsEngineFeedInfos < ActiveRecord::Migration[4.2]
   TABLE = :gtfs_engine_feed_infos
 
