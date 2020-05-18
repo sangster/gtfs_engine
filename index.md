@@ -184,4 +184,4 @@ Model count for halifax data set with etag ac43f674eaa0cf1:0
 [rails-engine]:    {{ site.data.urls.rails_engine }}
 [gtfs_reader_git]: {{ site.data.urls.gtfs_reader_git }}
 [wiki-json]:       {{ site.data.urls.wiki_json }}
-[jsend]:           {{ site.data.urls.jsend }
+[jsend]:           {{ site.data.urls.jsend }}
