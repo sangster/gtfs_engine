@@ -9,3 +9,5 @@ redcloth:
   hard_breaks: true
 
 url: "/gtfs_engine"
+
+theme: jekyll-theme-hacker
