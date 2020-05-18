@@ -3,7 +3,7 @@ title: Calendar
 layout: default
 cite_google: true
 toc: removeTopLevel
-----
+---
 
 # Calendar `(required)`
 

@@ -3,7 +3,7 @@ title: Stop
 layout: default
 cite_google: true
 toc: removeTopLevel
-----
+---
 
 # Stop `(required)`
 

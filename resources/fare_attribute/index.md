@@ -4,7 +4,7 @@ layout: default
 cite_google: true
 required_model: true
 toc: removeTopLevel
-----
+---
 
 # FareAttribute
 
