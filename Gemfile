@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord-import', '~> 1.0'
 gem 'gtfs_reader', '~> 4.0'
-gem 'rails', '~> 6.0'
+gem 'rails', ['>= 5.0', '< 7.0']
 gem 'responders', '~> 3.0'
 
 gem 'jbuilder', '~> 2.10'

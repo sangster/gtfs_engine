@@ -258,7 +258,7 @@ DEPENDENCIES
   jsend_wrapper-rails (~> 0.4)
   juwelier (~> 2.4)
   pry-byebug (~> 3.9)
-  rails (~> 6.0)
+  rails (>= 5.0, < 7.0)
   responders (~> 3.0)
   rspec (~> 3.9)
   simplecov (>= 0.18)
